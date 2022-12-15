@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Shark New Web',
+    name: 'MYMETA SHARK',
     component: () => import('@/views/HomePage.vue')
   },
   {

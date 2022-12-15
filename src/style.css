@@ -1,0 +1,33 @@
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  /* 粗體標題 */
+  font-family: "BoldTitle";
+  src: url("/assets/font/acumin-pro-cufonfonts/Acumin-BdPro.otf");
+}
+
+@font-face {
+  /* 內文 */
+  font-family: "Content";
+  src: url("/assets/font/acumin-pro-cufonfonts/Acumin-RPro.otf");
+}
+
+@font-face {
+  font-family: "Option";
+  src: url("/assets/font/acumin-pro-cufonfonts/Acumin-BdPro.otf"); 
+}
+@font-face {
+  font-family: Alpha;
+  src: url("/assets/font/Hiragino Sans TC W6/Hiragino Sans TC W6.otf");
+  unicode-range: U+2160 ,U+2188;
+}
+
+body{
+  padding: 0;
+  min-height: 100vh;
+}

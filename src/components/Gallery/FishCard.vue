@@ -18,6 +18,8 @@ export default {
 
     }
   },
+  mounted() {
+  },
   methods: {
 
   }

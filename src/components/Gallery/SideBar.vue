@@ -3,8 +3,15 @@
     TODO: rwd icon替換
     TODO: 收合ICON替換
   -->
-  <div>
-    <button class="text-2xl flex justify-end w-full text-white pr-4 lg:hidden block">
+  <div class="max-lg:flex max-lg:justify-end">
+    <div >
+
+      <span class="text-2xl text-white pr-4 lg:hidden block">
+        2500
+        <font-awesome-icon icon="fa-solid fa-rotate" />
+      </span>
+    </div>
+    <button class="text-2xl ml-6  text-white pr-4 lg:hidden block">
       <!-- This is Sidebar icon by sm screen -->
       <font-awesome-icon :icon="['fas', 'filter']"/>
     </button>

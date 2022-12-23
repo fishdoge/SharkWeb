@@ -1,6 +1,22 @@
 <template>
   <div>
     <img class="bg-img" :style="`background-image: url(${bg_img});position:fixed`">
+    <Anchor :data="[
+        {
+          name: 'ALL GAMES',
+          navbarOpen: true,
+          dropDown: [
+
+          ]
+        },
+        {
+          name: 'VIDEO',
+          navbarOpen: true,
+          dropDown: [
+
+          ]
+        }
+    ]"></Anchor>
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div v-for="(item, key) in post" :key="key" class="swiper-slide">
@@ -14,7 +30,7 @@
       <!-- 這邊的tailwind會被 swiper 套件蓋過去 所以用style -->
       <div class="swiper-pagination lg:ml-[35%] md:ml-[25%] sm:ml-0" style="position: fixed; bottom: 4rem; width: 25rem;"/>
     </div>
-    <div class="bottom-4 left-[10rem] md:bottom-16 md:left-20 absolute text-white btn">
+    <div class="bottom-16 left-20 absolute text-white">
       <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-gray-900 bg-opacity-60 rounded-lg border-2 border-cyan-500">
         Back
       </button>
@@ -26,6 +42,7 @@
 <script>
 import bg from '@/assets/鯊魚網站-PC版/素材/01主頁面-三軸式分頁.png'
 import SwiperPost from '@/components/HomeReadMore/SwiperPost.vue'
+import Anchor from '@/components/AnchorSidebar.vue'
 
 import { onMounted } from 'vue'
 import Swiper, { Navigation, Pagination } from 'swiper'
@@ -53,7 +70,8 @@ export default {
     })
   },
   components: {
-    SwiperPost
+    SwiperPost,
+    Anchor
   },
   data() {
     return {

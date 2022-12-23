@@ -4,7 +4,7 @@
    -->
   <div>
     <aside class="overflow-y-auto px-8 w-64 absolute z-[10] top-0 pt-[3.625rem;]" aria-label="Sidebar">
-      <button class="pb-[10%]" @click="setSidebarOpen()" data-dropdown-toggle="dropdownId">
+      <button class="pb-[10%]" @click="setSideBar()" data-dropdown-toggle="dropdownId">
         <svg width="32" height="32">
           <line x1="2" x2="32" y1="10" y2="10" style="stroke:rgb(255,255,255);stroke-width:2" />
           <line x1="2" x2="25" y1="20" y2="20" style="stroke:rgb(255,255,255);stroke-width:2" />
@@ -28,15 +28,12 @@
               <hr />
 
               <!-- 把條目送進來 -->
-              <div class="p-1" v-for="(item, key) in data" :key="key">
+              <div class="p-1" v-for="(item, key) in in_data" :key="key">
                 <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox"
                   class="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center pl-0"
-                  type="button" @click="setNavbarOpen(item)" style="width: 100%">
+                  type="button" @click="setDropDownOpen(item)" style="width: 100%">
                   <div v-if="item.name">
                     {{ item.name }}
-                  </div>
-                  <div v-else-if="item.icon[0]">
-                    <font-awesome-icon :icon="item.icon"></font-awesome-icon>
                   </div>
                   <div v-else>
                     NO NAME
@@ -55,9 +52,8 @@
                       aria-labelledby="dropdownCheckboxButton">
                       <li v-for="(check_box_item, key) in item.dropDown" :key="key">
                         <div class="flex items-center">
-                          <label for="checkbox-item-1" class="ml-2 text-sm font-medium text-white dark:text-gray-300">{{
-                              check_box_item
-                          }}</label>
+                          <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 rounded border-white focus:ring-blue-500 focus:ring-2" style="background-color: rgba(0 0 0 / 0%);">
+                          <label for="checkbox-item-1" class="ml-2 text-sm font-medium text-white dark:text-gray-300">{{check_box_item}}</label>
                         </div>
                       </li>
                     </ul>
@@ -80,20 +76,20 @@ import AnchorIcon from '@/assets/logo.svg'
 export default {
   name: 'AnchorSidebar',
   props: {
-    in_data: Array
+    data: Array
   },
   data() {
     return {
+      in_data: this.data,
       sidebarOpen: false,
-      anchor_icon: AnchorIcon,
-      data: this.in_data
+      anchor_icon: AnchorIcon
     }
   },
   methods: {
-    setNavbarOpen(item) {
+    setDropDownOpen(item) {
       item.navbarOpen = !item.navbarOpen
     },
-    setSidebarOpen() {
+    setSideBar() {
       this.sidebarOpen = !this.sidebarOpen
     }
   }

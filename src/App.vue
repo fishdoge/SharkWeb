@@ -4,7 +4,6 @@
     TODO: 修復字體的問題
     TODO: 新增底下的 Read Full Story 的按鈕(做一個新的 views 來放置)
     TODO: 調整字體的大小
-    TODO: 將最後一個購物車更改為下拉式選單(見 /src/assets/鯊魚網站-PC版/00主頁面-購物車.jpg)
   -->
   <div>
     <!-- Navbar -->
@@ -39,17 +38,16 @@
           :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']">
           <ul
             class="
-            flex flex-col p-3
-            mt-0 lg:mt-4 pl-0 pr-0
-            absolute top-[0] right-0 lg:absolute lg:right-[4rem] lg:top-[3%]
-            w-[80%] lg:w-[fit-content]
-            h-[100vh] lg:h-[fit-content]
-            z-[10]
-            bg-[rgba(184,208,218,0.95)] lg:bg-[rgba(0,0,0,0)]
-            dark:border-gray-700
-            lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0
-            lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0
-          ">
+          flex flex-col p-3
+          mt-0 lg:mt-4 pl-0 pr-0
+          absolute top-[0] right-0 lg:absolute lg:right-[4rem] lg:top-[3%]
+          w-[80%] lg:w-[fit-content]
+          h-[100vh] lg:h-[fit-content]
+          z-[10]
+          bg-[rgba(184,208,218,0.95)] lg:bg-[rgba(0,0,0,0)]
+          dark:border-gray-700
+          lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0
+        ">
 
             <!-- 把按鈕全部丟進來 -->
 
@@ -85,7 +83,10 @@
                   <!-- dropShoppingCar -->
                   <div id="dropdownShoppingCar" :class="[item.shoppingCar ? 'block rounded shadow-lg' : 'hidden']"
                     class="
-                      shopping-car
+                      lg:width-[5.8rem]
+                      mt-[10px]
+                      md:absolute
+                      md:width-[100%]
                       border-2 border-cyan-800 rounded-lg
                       z-10
                       bg-black
@@ -153,8 +154,13 @@
                     <div v-if="item.name" >
                       {{ item.name }}
                     </div>
+                    <div v-else-if="item.image" class="w-[15px] h-[20px]">
+                      <div class="lg:hidden inline-block text-black">{{ item.icon[1].toUpperCase() }}</div>
+                      <img :src="item.image" class="lg:absolute w-[fit-content] lg:top-1 lg:h-[20px] lg:right-[2px] lg:drop-shadow-[0px_0_rgba(0,0,0,0)] lg:left-[1.5px] right-[-300px] top-[458px] h-[25px] drop-shadow-[-306px_0_rgba(0,0,0,1)] fixed" alt="" />
+                    </div>
                     <div v-else-if="item.icon[0]" class="w-[fit-content] text-black lg:text-white">
-                      <font-awesome-icon :icon="item.icon" class=""></font-awesome-icon>
+                      <div class="lg:hidden inline-block ">{{ item.icon[1].toUpperCase() }}</div>
+                      <font-awesome-icon :icon="item.icon" class="lg:right-0 lg:relative absolute right-4 top-[20%]"></font-awesome-icon>
                     </div>
                     <div v-else>
                       NO NAME
@@ -190,6 +196,7 @@
 import CONFIG from '@/assets/website_cfg.json'
 import SITE_IMG from '@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png'
 import SHINE_IMG from '@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png'
+import IG from '@/assets/PNG素材/instagram.png'
 
 export default {
   data() {
@@ -221,7 +228,7 @@ export default {
           path: '/games'
         },
         {
-          name: 'Team',
+          name: 'TEAM',
           path: '/team'
         },
         {
@@ -234,7 +241,8 @@ export default {
         },
         {
           path: 'https://google.com',
-          icon: ['fab', 'instagram']
+          icon: ['fab', 'instagram'],
+          image: IG
         },
         {
           path: '',
@@ -342,18 +350,5 @@ body {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease-out;
-}
-
-.shopping-car {
-  width: 5.8rem;
-  position: fixed;
-  margin-top: 10px;
-  box-shadow: 0 0 5px 2px;
-}
-@media screen and (max-width: 768px) {
-  .shopping-car {
-    width: 100%;
-    position: absolute;
-  }
 }
 </style>

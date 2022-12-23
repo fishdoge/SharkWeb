@@ -11,20 +11,20 @@
     <div class="fixed team-content w-[100%] h-[100vh] top-0 z-[-1]" style="background: rgba(255, 255, 255, 0.2);box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);"></div>
     <!-- components -->
     <GameSlide></GameSlide>
-    <Anchor :in_data="[
+    <Anchor :data="[
         {
           name: 'ALL GAMES',
           navbarOpen: true,
           dropDown: [
 
-        ]
+          ]
         },
         {
           name: 'VIDEO',
           navbarOpen: true,
           dropDown: [
 
-        ]
+          ]
         }
     ]"></Anchor>
   </div>

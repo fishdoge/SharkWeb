@@ -4,17 +4,17 @@
 <template>
   <div class="z-[1]">
     <img class="bg-img fixed w-[100%] h-[100vh]" :style="`background-image: url(${bg_img}); position:fixed`" />
-    <div id="title" class="bottom-text">
-      <h1><b>MYM</b> ETANOMICS</h1>
-      <h2>SharkTank</h2>
-      <p class="text-gray-400">A collection of 5000 sharks gathered to navigate the world of Metanomics through</p>
-      <p class="h-5 text-gray-400">meaningful social impact activities</p>
+
+    <div id="title" class="absolute pl-7 text-white text-left
+         bottom-20 font-black mt-24">
+      <h1 class="leading-10 text-6xl pb-2 font-thin"><b class="font-black">MYM</b> ETANOMICS</h1>
+      <h2 class="text-left leading-10 text-4xl">SharkTank</h2>
+      <p class="relative pb-2 text-gray-400 text-xs text-left font-medium realtive">A collection of 5000 sharks gathered to navigate the world of Metanomics through<br>meaningful social impact activities</p>
       <router-link
         to="/readMore"
         type="button"
         class="px-4 py-1 text-lg bg-gray-900 bg-opacity-60 rounded-lg border-2 border-teal-700 font-light">
-        >
-        Read Full Story
+        Read Full Story <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </router-link>
     </div>
   </div>
@@ -43,35 +43,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.bottom-text {
-  position: absolute;
-  left: 2%;
-  bottom: 10%;
-  color: white;
-  text-align: center;
-  font-weight: 900;
-  margin-top: 100px;
-  text-align: left;
-}
-h1 {
-  line-height: 50px;
-  font-size: 350%;
-  font-weight: 100;
-}
-h2 {
-  text-align: left;
-  line-height: 50px;
-  font-size: 250%;
-}
-p {
-  position: relative;
-  font-size: 25%;
-  text-align: left;
-  /* font-weight: 100; */
-}
-b {
-  font-weight: 900;
-}
-</style>

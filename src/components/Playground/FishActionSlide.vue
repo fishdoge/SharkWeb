@@ -12,12 +12,13 @@
       <div class="absolute right-0" style="background-color: black;height: 100%;width: 50%;"></div>
       <button class="text-[#fff] text-[50px] absolute right-5 top-[-10vh] rotate-90" @click="prev">&lt;</button>
       <button class="text-[#fff] text-[50px] absolute right-5 top-[65vh] rotate-90" @click="next">></button>
-      <input type="radio" name="FishActionSlide" id="fas1" />
+
+      <!-- <input type="radio" name="FishActionSlide" id="fas1" />
       <input type="radio" name="FishActionSlide" id="fas2" />
       <input type="radio" name="FishActionSlide" id="fas3" checked />
       <input type="radio" name="FishActionSlide" id="fas4" />
-      <input type="radio" name="FishActionSlide" id="fas5" />
-      <label for="fas1" id="FishActionSlide1" class=" ">
+      <input type="radio" name="FishActionSlide" id="fas5" /> -->
+      <!-- <label for="fas1" id="FishActionSlide1" class=" ">
         <img src="https://fakeimg.pl/70x70/" class="rounded-full" alt="" />
       </label>
       <label for="fas2" id="FishActionSlide2" class=" ">
@@ -31,7 +32,7 @@
       </label>
       <label for="fas5" id="FishActionSlide5" class=" ">
         <img src="https://fakeimg.pl/70x70/" class="rounded-full" alt="" />
-      </label>
+      </label> -->
     </section>
   </div>
 </template>
@@ -43,42 +44,48 @@ export default {
   name: 'FishActionSlide',
   data() {
     return {
-      test: t
+      test: t,
+      data: [
+        {
+          name: 'shark1',
+          img: 'https://fakeimg.pl/70x70/'
+        }
+      ]
     }
   },
   methods: {
     // TODO: 之後要改成雙向綁定
     // next button
     next() {
-      const radioButtons = document.querySelectorAll('input[name="FishActionSlide"]')
-      for (const button of radioButtons) {
-        if (button.checked) {
-          console.log(button.id)
-          if (button.id === 'fas5') {
-            document.getElementById('fas1').checked = true
-            break
-          } else {
-            document.getElementById('fas' + String(parseInt(button.id.charAt(3)) + 1)).checked = true
-            break
-          }
-        }
-      }
+      // const radioButtons = document.querySelectorAll('input[name="FishActionSlide"]')
+      // for (const button of radioButtons) {
+      //   if (button.checked) {
+      //     console.log(button.id)
+      //     if (button.id === 'fas5') {
+      //       document.getElementById('fas1').checked = true
+      //       break
+      //     } else {
+      //       document.getElementById('fas' + String(parseInt(button.id.charAt(3)) + 1)).checked = true
+      //       break
+      //     }
+      //   }
+      // }
     },
     // prev button
     prev() {
-      const radioButtons = document.querySelectorAll('input[name="FishActionSlide"]')
-      for (const button of radioButtons) {
-        if (button.checked) {
-          console.log(button.id)
-          if (button.id === 'fas1') {
-            document.getElementById('fas5').checked = true
-            break
-          } else {
-            document.getElementById('fas' + String(parseInt(button.id.charAt(3)) - 1)).checked = true
-            break
-          }
-        }
-      }
+      // const radioButtons = document.querySelectorAll('input[name="FishActionSlide"]')
+      // for (const button of radioButtons) {
+      //   if (button.checked) {
+      //     console.log(button.id)
+      //     if (button.id === 'fas1') {
+      //       document.getElementById('fas5').checked = true
+      //       break
+      //     } else {
+      //       document.getElementById('fas' + String(parseInt(button.id.charAt(3)) - 1)).checked = true
+      //       break
+      //     }
+      //   }
+      // }
     }
   }
 }

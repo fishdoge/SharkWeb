@@ -2,13 +2,12 @@
   <img class="bg-img" :style="`background-image: url(${bg_img});`">
   <div class="pb-9 lg:p-9 lg:h-[calc(100vh-2vh-3.625rem-40px)] h-[calc(100vh-2vh-40px)]">
     <!-- This is Team -->
-    {{ a }}
     <div class="flex relative h-full flex-col lg:flex-row">
       <button
         v-show="showNum == -1"
-        class="absolute top-0 lg:left-[9rem] z-30 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0"
+        class="absolute top-0 lg:left-[9rem] z-30 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0 py-auto"
         data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-8 h-8 text-white lg:text-6xl text-3xl">
+        <span @click="prev()" class="inline-flex items-center justify-center w-8 h-8 text-white lg:text-6xl text-3xl">
           <font-awesome-icon :icon="['fas', 'angle-left']"></font-awesome-icon>
           <span class="sr-only">Previous</span>
         </span>
@@ -18,7 +17,7 @@
         type="button"
         class="absolute top-0 lg:right-[0] z-30 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none right-0"
         data-carousel-next>
-        <span class="inline-flex items-center justify-center w-8 h-8 text-white lg:text-6xl text-3xl">
+        <span @click="next" class="inline-flex items-center justify-center w-8 h-8 text-white lg:text-6xl text-3xl">
           <font-awesome-icon :icon="['fas', 'chevron-right']"></font-awesome-icon>
           <!-- <font-awesome-icon :icon="['fas', 'filter']"/> -->
           <!-- icon="fa-sharp fa-solid fa-filter" -->
@@ -34,7 +33,7 @@
           :item="item"
           :num= "key"
           :key="key"
-          @changeStatus="haha">
+          @changeStatus="changeStatus">
         </FishCard>
         <!-- @click="openModel(item,key)" -->
       </div>
@@ -104,8 +103,14 @@ export default {
     }
   },
   methods: {
-    haha(val) {
+    changeStatus(val) {
       this.showNum = val.open ? val.num : -1
+    },
+    next() {
+      console.log('next')
+    },
+    prev() {
+      console.log('prev')
     }
   }
 }

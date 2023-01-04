@@ -13,13 +13,13 @@
     <img class="bg-img" :style="`background-image: url(${bg_img}); position:fixed`" />
 
     <!-- 左變sidebar -->
-    <div>
-      <SideBar class="overflow-scroll-auto"></SideBar>
+    <div class="lg:w-64 lg:px-8 lg:block max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
+      <Anchor v-show="true" :data="sidebar" class="overflow-scroll-auto"></Anchor>
     </div>
 
     <!-- card-group -->
     <!-- FishCard 的 css gap-3 ，在展開左邊的 sidebar 時會有跟著展開的bug 把gap 改成固定 px 可以解決-->
-    <div class="absolute overflow-y-scroll overflow-x-hidden w-[fit-content] h-[100%] top-[0px] lg:left-[17rem]">
+    <div class="absolute overflow-y-scroll overflow-x-hidden w-[fit-content] h-[100%] top-[0px] lg:left-72 md:left-24">
       <div
         class="
         relative
@@ -68,7 +68,7 @@
 
 <script>
 import FishCard from '@/components/Gallery/FishCard.vue'
-import SideBar from '@/components/Gallery/SideBar.vue'
+import Anchor from '@/components/AnchorSidebar.vue'
 import ModalIcon from '@/components/Gallery/ModalIcon.vue'
 import bg from '@/assets/鯊魚網站-PC版/素材/02分圖層-1.png'
 import material1 from '@/assets/鯊魚網站-PC版/test.png'
@@ -76,13 +76,69 @@ import material1 from '@/assets/鯊魚網站-PC版/test.png'
 export default {
   components: {
     FishCard,
-    SideBar,
+    Anchor,
     ModalIcon
   },
   data() {
     return {
-      modal_switch: false,
+      modal_switch: true,
       bg_img: bg,
+      sidebar: [
+        {
+          name: 'SHARKTANK',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank',
+            'sharktank',
+            'sharktank',
+            'sharktank',
+            'sharktank',
+            'sharktank',
+            'sharktank'
+          ]
+        },
+        {
+          name: 'ANGKOR ART',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank'
+          ]
+        },
+        {
+          name: 'ARTEL',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank'
+          ]
+        },
+        {
+          name: 'SEA GAMES',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank'
+          ]
+        },
+        {
+          name: 'POWER NODES',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank'
+          ]
+        },
+        {
+          name: 'AGRICULTURE NFT',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank'
+          ]
+        }
+      ],
       data: [
         {
           name: 'test',

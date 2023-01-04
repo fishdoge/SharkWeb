@@ -41,6 +41,11 @@ const routes = [
     path: '/readMore',
     name: 'HomeReadMore',
     component: () => import('@/views/HomeReadMore.vue')
+  },
+  {
+    path: '/eventReadMore',
+    name: 'EventReadMore',
+    component: () => import('@/views/EventReadMore.vue')
   }
 ]
 

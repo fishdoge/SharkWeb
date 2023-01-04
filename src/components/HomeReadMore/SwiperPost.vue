@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1 v-html="post_title"></h1>
-    <h4 v-html="post_content" class="text-white"></h4>
+  <div class="relative pl-8 top-[-2rem]">
+    <div v-html="post_title" class="text-4xl pb-5"></div>
+    <p v-html="post_content" class="whitespace-pre-line text-white leading-8 text-lg font-thin"></p>
   </div>
 </template>
 

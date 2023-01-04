@@ -8,7 +8,7 @@
   -->
   <div class="overflow-hidden">
 
-    <div class="pt-[0px] text-[60px] text-[white] flex justify-center items-center">
+    <div class="pt-0 text-6xl text-white flex justify-center items-center">
       <span class="font-[1000]">MYM</span>
       <span style="font-weight: lighter;">ETANOMICS</span>
     </div>

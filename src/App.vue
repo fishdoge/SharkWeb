@@ -4,6 +4,7 @@
     TODO: 修復字體的問題
     TODO: 新增底下的 Read Full Story 的按鈕(做一個新的 views 來放置)
     TODO: 調整字體的大小
+    TODO: 拿掉底下的 CSS
   -->
   <div>
     <!-- Navbar -->
@@ -11,70 +12,56 @@
       <div class="container flex flex-wrap items-center justify-between lg:mx-auto">
         <!-- Left Image and title -->
         <router-link to="/" class="flex items-center">
-          <span style="position: absolute; left: 2%; top: 3%;">
-            <img src="@/assets/鯊魚網站-PC版/素材/none.png" class="w-[40px] h-[50px] mr-3 logo bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png')] hover:bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png')]"  alt="" />
+          <span class="absolute left-7 top-6">
+            <img
+              src="@/assets/鯊魚網站-PC版/素材/none.png"
+              class="w-10 h-12 mr-3 logo bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png')] hover:bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png')]"
+              alt=""
+            />
           </span>
           <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ SITE_CONFIG.website_name }}</span> -->
         </router-link>
-        <button @click="setNavbarOpen" data-collapse-toggle="navbar-default" type="button"
-          class="
-          items-center p-2 ml-3
-          text-sm text-gray-500 rounded-lg
-          z-[100] lg:hidden hover:bg-gray-100
-          focus:outline-none focus:ring-2
-          focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default" aria-expanded="false">
+        <button
+          @click="setNavbarOpen"
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="items-center p-2 ml-3 text-sm text-gray-500 rounded-lg z-30 lg:hidden focus:outline-none focus:ring-0 dark:text-gray-400 dark:hover:bg-gray-700  dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clip-rule="evenodd"></path>
-          </svg>
+          <font-awesome-icon :icon="this.navbarOpen ? ['fas','x'] : ['fas','bars']" class="w-6 h-6 text-black"/>
         </button>
 
         <!-- Right Button with data-->
-        <div class="w-full lg:w-auto lg:block" id="navbar-default"
+        <div class="w-full lg:w-auto lg:block z-20" id="navbar-default"
           :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']">
           <ul
-            class="
-          flex flex-col p-3
-          mt-0 lg:mt-4 pl-0 pr-0
-          absolute top-[0] right-0 lg:absolute lg:right-[4rem] lg:top-[3%]
-          w-[80%] lg:w-[fit-content]
-          h-[100vh] lg:h-[fit-content]
-          z-[10]
-          bg-[rgba(184,208,218,0.95)] lg:bg-[rgba(0,0,0,0)]
-          dark:border-gray-700
-          lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0
-        ">
+            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:absolute lg:right-10 lg:top-6 w-80 lg:w-fit h-full lg:h-fit z-10 bg-[rgba(184,208,218,0.95)] lg:bg-transparent dark:border-gray-700 lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
 
             <!-- 把按鈕全部丟進來 -->
 
             <!-- offset -->
             <li v-for="(item, key) in data" :key="key" class="
-              relative top-[2.65rem] lg:top-0
+              relative top-11 lg:top-0
             ">
 
               <!-- 如果位置不含 http 也就是網址 -->
               <div v-if="!item.path.includes('http')">
                 <div v-if="item.path == ''" class="nav-link">
-                  <button type="button" id="dropdownDefault" data-dropdown-toggle="dropdownShoppingCar"
-                    class="
-                    block
-                    transition duration-100 ease-in-out
-                    w-[100%]
-                    px-2 py-1
-                    disabled:cursor-not-allowed
-                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50
-                    border border-transparent shadow-sm rounded
-                    hover:bg-gray-600"
+                  <button
+                    type="button"
+                    id="dropdownDefault"
+                    data-dropdown-toggle="dropdownShoppingCar"
+                    class="block transition duration-100 ease-in-out w-full
+                      px-2 py-1 disabled:cursor-not-allowed focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 border border-transparent shadow-sm rounded
+                      hover:bg-gray-600"
                     @click="setShoppingCarOpen(item)">
                     <div v-if="item.name">
                       {{ item.name }}
                     </div>
-                    <div v-else-if="item.icon[0]" class="w-[fit-content] text-black lg:text-white">
-                      <font-awesome-icon :icon="item.icon"></font-awesome-icon>
+                    <div v-else-if="item.icon[0]" class="lg:w-fit text-black h-5 lg:text-white flex justify-between max-md:w-full items-center">
+                      <span class="lg:hidden">BUY</span>
+                      <font-awesome-icon :icon="item.icon" class="max-md:mr-1.5"></font-awesome-icon>
                     </div>
                     <div v-else>
                       NO NAME
@@ -82,46 +69,27 @@
                   </button>
                   <!-- dropShoppingCar -->
                   <div id="dropdownShoppingCar" :class="[item.shoppingCar ? 'block rounded shadow-lg' : 'hidden']"
-                    class="
-                      lg:width-[5.8rem]
-                      mt-[10px]
-                      md:absolute
-                      md:width-[100%]
-                      border-2 border-cyan-800 rounded-lg
-                      z-10
-                      bg-black
-                      w-[100%]  lg:w-[280%]
-                      divide-y divide-gray-100
-                      shadow
-                      ">
-                      <ul class="
-                      py-1 w-[fit-content]
-                      text-sm text-gray-700
-                      dark:text-gray-200"
-                      aria-labelledby="dropdownDefault"
-                      style="padding-left: 5px;">
-                      <li v-for="(dropDownItem, key) in item.dropDown" :key="key"
-                        style="padding-top: 5px; padding-bottom: 5px;">
-                        <a :href="dropDownItem.path" class="text-white">{{ dropDownItem.name }}</a>
+                    class="mt-2 md:absolute md:w-full lg:border-2 lg:border-cyan-800 lg:rounded-lg z-10 lg:bg-opacity-70 lg:bg-black w-full  lg:w-24 divide-y  divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
+                  >
+                    <ul
+                      class="py-1 w-fit text-sm text-gray-700 dark:text-gray-200 pl-1 lg:text-right"
+                      aria-labelledby="dropdownDefault">
+                      <li
+                        v-for="(dropDownItem, key) in item.dropDown"
+                        :key="key"
+                        class="pt-1 pb-1"
+                      >
+                        <a :href="dropDownItem.path" class="text-white max-md:text-black">{{ dropDownItem.name }}</a>
                       </li>
                     </ul>
                   </div>
                 </div>
-                <div v-else class="">
+                <div v-else>
                   <router-link :to="item.path" class="nav-link">
                     <button
-                      class="
-                        block
-                        px-2 py-1
-                        mb-4
-                        w-[100%]
-                        transition duration-100 ease-in-out
-                        disabled:opacity-50 disabled:cursor-not-allowed
-                        text-black lg:text-white
-                        border border-transparent shadow-sm rounded
-                        hover:bg-gray-600 "
-                      >
-                      <div class="w-[fit-content]" v-if="item.name">
+                      class="block px-2 py-1 mb-4 w-full transition duration-100 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed text-black lg:text-white border border-transparent shadow-sm rounded hover:bg-gray-600 "
+                    >
+                      <div class="w-fit" v-if="item.name">
                         {{ item.name }}
                       </div>
                       <div v-else-if="item.icon[0]" >
@@ -138,55 +106,42 @@
               <div v-else>
                 <a :href="item.path" target="_blank" class="nav-link">
                   <button
-                    class="
-                      block
-                      w-[100%]
-                      px-2 py-1
-                      mb-4
-                      transition duration-100 ease-in-out
-                      focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50
-                      disabled:opacity-50 disabled:cursor-not-allowed
-                      text-white
-                      hover:bg-gray-600
-                      border border-transparent shadow-sm rounded
+                    class="block w-full px-2 py-1 mb-4 transition duration-100 ease-in-out first-letter:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-white hover:bg-gray-600 border border-transparent shadow-sm rounded
                     "
                     @click="setNavbarOpen(item)">
                     <div v-if="item.name" >
                       {{ item.name }}
                     </div>
-                    <div v-else-if="item.image" class="w-[15px] h-[20px]">
+
+                    <div v-else-if="item.image" class="w-4 h-5">
                       <div class="lg:hidden inline-block text-black">{{ item.icon[1].toUpperCase() }}</div>
-                      <img :src="item.image" class="lg:absolute w-[fit-content] lg:top-1 lg:h-[20px] lg:right-[2px] lg:drop-shadow-[0px_0_rgba(0,0,0,0)] lg:left-[1.5px] right-[-300px] top-[458px] h-[25px] drop-shadow-[-306px_0_rgba(0,0,0,1)] fixed" alt="" />
+                      <img :src="item.image" class="lg:absolute w-fit lg:top-1 lg:h-5 lg:right-0.5 lg:drop-shadow-[0px_0_rgba(0,0,0,0)] lg:left-[1.5px] right-[-300px] top-[410px] h-6 drop-shadow-[-306px_0_rgba(0,0,0,1)] fixed" alt="" />
                     </div>
-                    <div v-else-if="item.icon[0]" class="w-[fit-content] text-black lg:text-white">
+
+                    <div v-else-if="item.icon[0]" class="w-fit text-black lg:text-white">
                       <div class="lg:hidden inline-block ">{{ item.icon[1].toUpperCase() }}</div>
                       <font-awesome-icon :icon="item.icon" class="lg:right-0 lg:relative absolute right-4 top-[20%]"></font-awesome-icon>
                     </div>
+
                     <div v-else>
                       NO NAME
                     </div>
+
                   </button>
                 </a>
               </div>
-              <!-- <a href="#" class="text-white y-500 border border-transparent shadow-sm rounded hover:bg-blue-600" aria-current="page">Home</a> -->
             </li>
-
-            <!-- <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-            </li> -->
+            <div class="absolute bottom-6 pl-4 font-bold text-sm lg:hidden">A collection of 5000 sharks gathered to navigate the world of the Metanomics through</div>
           </ul>
+          <!-- <div class="lg:hidden">
+            description here
+            A collection of 5000 sharks gathered to navigate the Psiletanomics through meaningful social impact activities
+          </div> -->
         </div>
       </div>
     </nav>
 
     <router-view ></router-view>
-
-    <!-- transform -->
-    <!-- <router-view v-slot="{Component}" class="z-[1]">
-      <transition name="fade">
-        <component :is="Component"/>
-      </transition>
-    </router-view> -->
   </div>
 </template>
 
@@ -208,11 +163,7 @@ export default {
       lightningIcon: false,
       data: [
         {
-          name: 'NOW MINTING',
-          path: '/'
-        },
-        {
-          name: 'GALLERY',
+          name: 'COLLECTIONS',
           path: '/gallery'
         },
         {
@@ -283,11 +234,6 @@ export default {
 </script>
 
 <style>
-body {
-  height: 100%;
-  padding: 0px;
-  margin: 0%;
-}
 
 .bg-img {
   position: absolute;

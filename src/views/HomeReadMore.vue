@@ -12,62 +12,59 @@
         </div>
       </div>
       <!-- 這邊的tailwind會被 swiper 套件蓋過去 所以用style -->
-      <div class="swiper-pagination lg:ml-[35%] md:ml-[25%] sm:ml-0" style="position: fixed; bottom: 4rem; width: 25rem;"/>
+      <!-- <div class="swiper-pagination lg:ml-[40%] md:ml-[30%] sm:ml-0" style="position: fixed; bottom: 4rem; width: 25rem;"/> -->
     </div>
-    <div class="bottom-4 left-[10rem] md:bottom-16 md:left-20 absolute text-white btn">
-      <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-gray-900 bg-opacity-60 rounded-lg border-2 border-cyan-500">
+    <div class="bottom-12 left-[2rem] md:bottom-16 md:left-20 absolute text-white btn">
+      <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-opacity-20 bg-gray-900 rounded-lg border-opacity-40 border-2 border-cyan-400 z-50">
         Back
       </button>
       <!-- <router-link to="/" type="button" >Back</router-link> -->
     </div>
+    <!-- <Anchor :data="data"
+    ></Anchor> -->
   </div>
 </template>
 
 <script>
 import bg from '@/assets/鯊魚網站-PC版/素材/01主頁面-三軸式分頁.png'
 import SwiperPost from '@/components/HomeReadMore/SwiperPost.vue'
+// import Anchor from '@/components/AnchorSidebar.vue'
 
-import { onMounted } from 'vue'
 import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 Swiper.use([Navigation, Pagination])
 
 export default {
-  setup() {
-    let swiper = new Swiper('.mySwiper', {})
-    onMounted(() => {
-      swiper = new Swiper('.mySwiper', {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-          renderBullet: function(index, className) {
-            return '<span class="' + className + '"></span>'
-          }
-        }
-      })
-    })
-    swiper.on('init', () => {
-      console.log('init')
-    })
-  },
   components: {
     SwiperPost
+    // Anchor
   },
   data() {
     return {
       bg_img: bg,
       post: [
         {
-          title: `<b>MYM</b> ETANOMICS
+          title: `<b>MYM</b> <span class="font-thin">ETANOMICS</span>
           `,
-          content: `A collection of 5000 sharks gathered to navigate the world of <br>
-        Metanomics through <br>
-        meaningful social impact activities <br>
-        A collection of 5000 sharks gathered to navigate the wprld of <br>
-        Metanomics through <br>
-        meaningful social impact activities <br>`
+          content: `SharkTank is a colalition of 5000
+          MYMetaSharks with the collective
+          drive to navigate theeconomice of
+          the metaverse in meaningful and impactful ways.
+
+          The advent of blockchain
+          technology ushers in unprecedented
+          possibilities collaborate, create,
+          and bulid.
+
+          As the keystone soecues in the
+          MYMetanonics ecosystem, our
+          mission is to use blockchain
+          technology to create an
+          environment where innovation and
+          creativity can generate a positive
+          social impact on everyone.
+          `
         },
         {
           title: 'page2',
@@ -80,6 +77,21 @@ export default {
 
       ]
     }
+  },
+  mounted() {
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function(index, className) {
+          return '<span class="' + className + '"></span>'
+        }
+      }
+    })
+    return {
+      swiper
+    }
   }
 }
 </script>
@@ -89,7 +101,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.swiper-slide {
+.mySwiper .swiper-slide {
   background-color: rgba(255, 255, 255 / 0%);
   display: flex;
 }
@@ -97,7 +109,7 @@ export default {
 /* .btn :hover {
   background-color: rgba(255, 255, 255, 15%);
 } */
-.swiper-pagination-bullet {
+.mySwiper .swiper-pagination-bullet {
   padding: 0px 25px;
   border-radius: 0;
   width: 7.5rem;
@@ -105,7 +117,8 @@ export default {
   opacity: 1;
   background: rgba(255, 255, 255, 1);
 }
-.swiper-pagination-bullet-active {
+
+.mySwiper .swiper-pagination-bullet-active {
   position: relative;
   bottom: -2px;
   height: 7px;

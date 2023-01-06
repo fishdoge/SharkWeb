@@ -98,6 +98,27 @@ export default {
           story: 'Fashionably late, but always looking fly',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
+        },
+        {
+          name: 'MJ Shark',
+          title: ' Social Media Lead',
+          story: 'Here to make sure we are always showing our best side to the world!',
+          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          open: false
+        },
+        {
+          name: 'JB Shark',
+          title: 'Lead Content Creator',
+          story: 'Artistic and talented across different mediums. She’s always reppin’ hard! ',
+          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          open: false
+        },
+        {
+          name: 'MS Shark',
+          title: ' Metaverse Tech Lead',
+          story: 'In charge of the fun! First to show up at the party, and last to leave… mostly because the lights won’t stay on without him',
+          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          open: false
         }
       ],
       sidebar: [

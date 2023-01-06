@@ -47,6 +47,7 @@
 import FishCard from '@/components/TeamPage/FishCard.vue'
 import Anchor from '@/components/AnchorSidebar.vue'
 import bg from '@/assets/鯊魚網站-PC版/素材/05分圖層.png'
+
 export default {
   components: {
     FishCard,

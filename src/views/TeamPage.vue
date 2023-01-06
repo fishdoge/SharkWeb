@@ -58,44 +58,44 @@ export default {
       showNum: -1,
       fishCardData: [
         {
-          name: 'Jonathan Kuo',
-          title: 'Business Development',
-          story: 'A collection of 5000 Sharks gather to navigate the workd of Metanomics throught',
+          name: 'JL Shark',
+          title: 'Development',
+          story: 'Director of vibes and resident visionary. Here to shake up the metaverse!',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
         },
         {
-          name: 'Doug Ying',
-          title: 'Business Development',
-          story: 'story',
+          name: 'KJ Shark',
+          title: 'Development',
+          story: 'The one who always has your back. Practical, grounded, and with the biggest heart',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
         },
         {
-          name: 'Mini Tsai',
-          title: 'Business Development',
-          story: 'story',
+          name: 'DY Shark',
+          title: 'Development',
+          story: 'The glue that holds everyone together. Will fight KJ for the spot of biggest heart',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
         },
         {
-          name: 'Mini Tsai',
-          title: 'Business Development',
-          story: 'story',
+          name: 'LH Shark',
+          title: ' Marketing Lead',
+          story: 'The hype man for all things Metanomics',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
         },
         {
-          name: 'Jonathan Kuo',
-          title: 'Business Development',
-          story: 'story',
+          name: 'NL Shark',
+          title: 'Lead Content Editor ',
+          story: 'Oversees all content with her discerning eyes',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
         },
         {
-          name: 'Doug Ying',
-          title: 'Business Development',
-          story: 'story',
+          name: 'MT Shark',
+          title: 'Art Design Lead',
+          story: 'Fashionably late, but always looking fly',
           img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
           open: false
         }

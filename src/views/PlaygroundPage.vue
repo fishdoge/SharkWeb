@@ -1,61 +1,64 @@
 <template>
   <!--
-    TODO: 新增 GSAP 動畫
     TODO: 用 VueGL 去做 3D 物件
-    TODO: 做出 左邊三條線的東西(應該是sidebar)
-    TODO: Sidebar 新增下拉式選單(一樣透過 component 去呼叫就行，不用再寫一次，只要把資料傳進去就好)
-    TODO: 右邊動畫的部份做出資訊跳出來的效果
-    TODO: Anchor 元件不要使用 in_data，而是使用多個 props 傳入
     TODO: sharkSlide 下方hr 改掉 改成figma 素材
   -->
   <div>
-    <img class="bg-img" :style="`background-image: url(${bg_img});position:fixed`">
-    <!-- sidebar container -->
+    <!-- bg -->
+    <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/05分圖層.png')]" >
+
+    <!-- Sidebar -->
     <div
       class="lg:mt-1 lg:px-8 lg:w-64
-        overflow-y-auto absolute top-0 pt-[3.625rem]
+        overflow-y-auto absolute top-0 pt-14
         max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
       ">
-      <Anchor :data="sidebar"></Anchor>
+      <Anchor :data="sidebar" :iconShow="true"></Anchor>
     </div>
-    <div id="sharkSlide" class="absolute lg:w-1/2 max-lg:w-full max-lg:bottom-0 md:bottom-4 md:w-full max-lg:pb-5 lg:bottom-12 lg:left-[25%] max-lg:left-0 ">
+
+    <!-- 底下的鯊魚種類 -->
+    <div id="sharkSlide" class="absolute lg:w-1/2 max-lg:w-full max-lg:bottom-0 md:bottom-4 md:w-full max-lg:pb-5 lg:bottom-12 lg:left-1/4 max-lg:left-0 ">
       <div class="test_bar2"></div>
       <div class="swiper sharkSwiper">
         <div class="lg:pl-6 md:pl-3 swiper-wrapper">
           <div
-            class="swiper-slide
-            left-[-1rem]"
+            class="swiper-slide -left-4"
             v-for="(item, key) in sharkData" :key="key"
           >
             <button>
-              <img :id="item.name" :src="item.sharkImg" class="relative top-1/2 left-1/2 max-lg:h-[40px] lg:h-[70px] mt-4 mb-2"/>
+              <img :id="item.name" :src="item.sharkImg" class="relative top-1/2 left-1/2 max-lg:h-10 lg:h-[70px] mt-4 mb-2"/>
             </button>
           </div>
         </div>
-        <button class="swiper-button-prev text-[#fff] text-lg max-lg:bottom-0 text-[50px] absolute max-lg:left-4 lg:left-0 lg:bottom-[15px] z-10">&lt;</button>
-        <button class="swiper-button-next text-[#fff] text-lg max-lg:bottom-0 text-[50px] absolute max-lg:right-4 lg:right-0 lg:bottom-[15px] z-10">></button>
+        <button class="swiper-button-prev text-white leading-7 max-lg:bottom-0 text-5xl absolute max-lg:left-4 lg:left-0 lg:bottom-4 z-10">
+          <font-awesome-icon icon="angle-left" />
+        </button>
+        <button class="swiper-button-next text-white leading-7 max-lg:bottom-0 text-5xl absolute max-lg:right-4 lg:right-0 lg:bottom-4 z-10">
+          <font-awesome-icon icon="angle-right" />
+        </button>
       </div>
     </div>
 
-    <div id="actionSlide" class="absolute lg:w-[26rem] max-lg:w-[4rem] max-lg:h-[65%] max-lg:bottom-[20%] lg:h-[80%] lg:bottom-[5%] max-lg:right-3 lg:right-16">
+    <!-- 右邊的鯊魚動作 -->
+    <div id="actionSlide" class="absolute lg:w-[26rem] max-lg:w-16 max-lg:h-2/3 max-lg:bottom-[20%] lg:h-4/5 lg:bottom-[5%] max-lg:right-3 lg:right-16">
       <div class="test_bar w-1 absolute top-0 right-0 translate-x-1/2 translate-y-0 h-full rounded-[50%] test_bar"></div>
-      <div class="h-[100%] swiper actionSwiper">
+      <div class="h-full swiper actionSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide  max-lg:hover:right-0 lg:hover:right-[-2rem] hover:scale-125 scale-1 flex lg:right-[-4rem]" v-for="(item, key) in sharkData" :key="key"
-          @mouseover="item.isHide = false"
-          @mouseleave="item.isHide = true"
+          <div class="swiper-slide  max-lg:hover:right-0 lg:hover:-right-8 hover:scale-125 scale-1 flex lg:-right-16" v-for="(item, key) in sharkData" :key="key"
           >
             <div class="max-lg:hidden bg-black bg-opacity-30 rounded-l-2xl relative lg:w-full lg:top-2 lg:h-32 lg:-right-5 text-white z-0" :class="[item.isHide ? 'hidden' : '']">
               <div class="font-bold pt-4 pl-4 text-lg">{{ item.title }}</div>
               <div class="pl-4 font-thin">{{ item.content }}</div>
             </div>
-            <button class="absolute float-right lg:right-20">
-              <img :id="item.name" :src="item.actionIcon" class="top-1/2 left-1/2 rounded-full lg:h-[70px] lg:mt-[35px]"/>
+            <button class="absolute float-right lg:right-20"
+              @mouseover="item.isHide = false"
+              @mouseleave="item.isHide = true">
+              <img :id="item.name" :src="item.actionIcon" class="top-1/2 left-1/2 rounded-full lg:h-[70px] lg:mt-9"/>
             </button>
           </div>
         </div>
-        <button class="swiper-button-prev text-[#fff] max-lg:text-lg lg:text-[50px] absolute right-6 max-lg:top-0 lg:top-[-15px] z-10">^</button>
-        <button class="swiper-button-next text-[#fff] max-lg:text-lg lg:text-[50px] absolute right-6 max-lg:bottom-0 lg:bottom-[-15px] z-10">v</button>
+        <button class="swiper-button-prev text-white max-lg:text-lg lg:text-[50px] absolute right-6 max-lg:top-0 lg:-top-4 z-10">^</button>
+        <button class="swiper-button-next text-white max-lg:text-lg lg:text-[50px] absolute right-6 max-lg:bottom-0 lg:-bottom-4 z-10">v</button>
       </div>
     </div>
     <!-- <ClassSlide></ClassSlide>
@@ -64,7 +67,6 @@
 </template>
 
 <script>
-import bg from '@/assets/鯊魚網站-PC版/素材/05分圖層.png'
 import Anchor from '@/components/AnchorSidebar.vue'
 import SharkImg from '@/assets/鯊魚網站-PC版/test.png'
 
@@ -83,7 +85,6 @@ export default {
   },
   data() {
     return {
-      bg_img: bg,
       sharkData: [
         {
           name: 'shark1',
@@ -91,8 +92,8 @@ export default {
           actionIcon: SharkImg,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'this is the shark title',
-          content: 'this is content'
+          title: 'shark1 title',
+          content: 'shark1 content'
         },
         {
           name: 'shark2',
@@ -100,8 +101,8 @@ export default {
           actionIcon: SharkImg,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'this is the shark title',
-          content: 'this is content'
+          title: 'shark2 title',
+          content: 'shark2 content'
         },
         {
           name: 'shark3',
@@ -109,8 +110,8 @@ export default {
           actionIcon: SharkImg,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'this is the shark title',
-          content: 'this is content'
+          title: 'shark3 title',
+          content: 'shark3 content'
         },
         {
           name: 'shark4',
@@ -118,8 +119,8 @@ export default {
           actionIcon: SharkImg,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'this is the shark title',
-          content: 'this is content'
+          title: 'shark4 title',
+          content: 'shark4 content'
         },
         {
           name: 'shark5',
@@ -127,8 +128,8 @@ export default {
           actionIcon: SharkImg,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'this is the shark title',
-          content: 'this is content'
+          title: 'shark5 title',
+          content: 'shark5 content'
         }
       ],
       sidebar: [

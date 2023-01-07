@@ -10,11 +10,11 @@
   -->
   <div>
     <!-- This is 相簿 -->
-    <img class="bg-img" :style="`background-image: url(${bg_img}); position:fixed`" />
+    <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/02分圖層-1.png')]" />
 
     <!-- 左變sidebar -->
     <div class="lg:w-64 lg:px-8 lg:block max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
-      <Anchor v-show="true" :data="sidebar" class="overflow-scroll-auto"></Anchor>
+      <Anchor v-show="true" :data="sidebar" :titleShow="true" class="overflow-scroll-auto"></Anchor>
     </div>
 
     <!-- card-group -->
@@ -70,7 +70,6 @@
 import FishCard from '@/components/Gallery/FishCard.vue'
 import Anchor from '@/components/AnchorSidebar.vue'
 import ModalIcon from '@/components/Gallery/ModalIcon.vue'
-import bg from '@/assets/鯊魚網站-PC版/素材/02分圖層-1.png'
 import material1 from '@/assets/鯊魚網站-PC版/test.png'
 
 export default {
@@ -82,7 +81,6 @@ export default {
   data() {
     return {
       modal_switch: true,
-      bg_img: bg,
       sidebar: [
         {
           name: 'SHARKTANK',

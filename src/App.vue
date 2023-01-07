@@ -8,53 +8,56 @@
   -->
   <div>
     <!-- Navbar -->
-    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pb-[3.625rem] pt-[2vh] z-[100]">
+    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pb-[3.625rem] pt-[2vh] z-10">
       <div class="container flex flex-wrap items-center justify-between lg:mx-auto">
         <!-- Left Image and title -->
         <router-link to="/" class="flex items-center">
           <span class="absolute left-7 top-6">
+            <!-- class="w-10 h-12 mr-3 logo bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png')] hover:bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png')]" -->
             <img
-              src="@/assets/鯊魚網站-PC版/素材/none.png"
-              class="w-10 h-12 mr-3 logo bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png')] hover:bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png')]"
+              :src="lightningURL"
+              @mouseover="lightningURL = WEB_SITE_LOGO_SHINE" @mouseleave="lightningURL = WEB_SITE_IMG"
+              class="w-10 hover:w-20 ml-5 hover:ml-0 mt-5 hover:mt-0"
               alt=""
             />
           </span>
           <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ SITE_CONFIG.website_name }}</span> -->
         </router-link>
+
+        <!-- 手機板 Navbar 三個點 -->
         <button
           @click="setNavbarOpen"
           data-collapse-toggle="navbar-default"
           type="button"
-          class="items-center p-2 ml-3 text-sm text-gray-500 rounded-lg z-30 lg:hidden focus:outline-none focus:ring-0 dark:text-gray-400 dark:hover:bg-gray-700  dark:focus:ring-gray-600"
+          :class="[navbarOpen ? 'z-40' : 'z-20' , 'items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden focus:outline-none focus:ring-0 dark:text-gray-400 dark:hover:bg-gray-700  dark:focus:ring-gray-600']"
           aria-controls="navbar-default"
           aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <font-awesome-icon :icon="this.navbarOpen ? ['fas','x'] : ['fas','bars']" class="w-6 h-6 text-black"/>
         </button>
 
-        <!-- Right Button with data-->
-        <div class="w-full lg:w-auto lg:block z-20" id="navbar-default"
+        <!-- Phone Right Button with data-->
+        <div class="w-full lg:w-auto lg:block z-30" id="navbar-default"
           :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']">
           <ul
-            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:absolute lg:right-10 lg:top-6 w-80 lg:w-fit h-full lg:h-fit z-10 bg-[rgba(184,208,218,0.95)] lg:bg-transparent dark:border-gray-700 lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
+            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:absolute lg:right-10 lg:top-6 w-80 lg:w-fit h-full lg:h-fit bg-[rgba(186,197,202,0.86)] lg:bg-transparent lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
 
             <!-- 把按鈕全部丟進來 -->
 
             <!-- offset -->
-            <li v-for="(item, key) in data" :key="key" class="
-              relative top-11 lg:top-0
-            ">
+            <li v-for="(item, key) in data" :key="key" class="relative top-11 lg:top-0">
 
               <!-- 如果位置不含 http 也就是網址 -->
               <div v-if="!item.path.includes('http')">
-                <div v-if="item.path == ''" class="nav-link">
+                <!-- 購物車 -->
+                <div v-if="item.path == ''">
                   <button
                     type="button"
                     id="dropdownDefault"
                     data-dropdown-toggle="dropdownShoppingCar"
                     class="block transition duration-100 ease-in-out w-full
                       px-2 py-1 disabled:cursor-not-allowed focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 border border-transparent shadow-sm rounded
-                      hover:bg-gray-600"
+                      hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] md:bg-gray-800 md:hover:bg-gray-800 md:active:bg-gray-800 md:bg-opacity-60 md:hover:bg-opacity-40"
                     @click="setShoppingCarOpen(item)">
                     <div v-if="item.name">
                       {{ item.name }}
@@ -69,7 +72,7 @@
                   </button>
                   <!-- dropShoppingCar -->
                   <div id="dropdownShoppingCar" :class="[item.shoppingCar ? 'block rounded shadow-lg' : 'hidden']"
-                    class="mt-2 md:absolute md:w-full lg:border-2 lg:border-cyan-800 lg:rounded-lg z-10 lg:bg-opacity-70 lg:bg-black w-full  lg:w-24 divide-y  divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
+                    class="mt-2 md:absolute md:w-full lg:border-2 lg:border-cyan-800 lg:rounded-lg lg:bg-opacity-70 lg:bg-black w-full  lg:w-24 divide-y  divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
                   >
                     <ul
                       class="py-1 w-fit text-sm text-gray-700 dark:text-gray-200 pl-1 lg:text-right"
@@ -84,10 +87,11 @@
                     </ul>
                   </div>
                 </div>
+                <!-- 不是網址 -->
                 <div v-else>
                   <router-link :to="item.path" class="nav-link">
                     <button
-                      class="block px-2 py-1 mb-4 w-full transition duration-100 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed text-black lg:text-white border border-transparent shadow-sm rounded hover:bg-gray-600 "
+                      class="block px-2 py-1 mb-4 w-full transition duration-100 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed text-black lg:text-white border border-transparent shadow-sm rounded hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] md:bg-gray-800 md:hover:bg-gray-800 md:active:bg-gray-800 md:bg-opacity-60 md:hover:bg-opacity-40"
                     >
                       <div class="w-fit" v-if="item.name">
                         {{ item.name }}
@@ -104,10 +108,10 @@
               </div>
               <!-- 如果位置含 http 也就是網址 -->
               <div v-else>
-                <a :href="item.path" target="_blank" class="nav-link">
+                <a :href="item.path" target="_blank">
                   <button
                     class="block w-full px-2 py-1 mb-4 transition duration-100 ease-in-out first-letter:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-white hover:bg-gray-600 border border-transparent shadow-sm rounded
-                    "
+                    bg-[#90bdd6] active:bg-[#90bdd6] md:bg-gray-800 md:hover:bg-gray-800 md:active:bg-gray-800 md:bg-opacity-60 md:hover:bg-opacity-40"
                     @click="setNavbarOpen(item)">
                     <div v-if="item.name" >
                       {{ item.name }}
@@ -150,7 +154,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import CONFIG from '@/assets/website_cfg.json'
 import SITE_IMG from '@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png'
-import SHINE_IMG from '@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png'
+import SHINE_IMG from '@/assets/閃電ICON發光1.png'
 import IG from '@/assets/PNG素材/instagram.png'
 
 export default {
@@ -161,6 +165,7 @@ export default {
       WEB_SITE_LOGO_SHINE: SHINE_IMG,
       navbarOpen: false,
       lightningIcon: false,
+      lightningURL: SITE_IMG,
       data: [
         {
           name: 'COLLECTIONS',
@@ -234,31 +239,6 @@ export default {
 </script>
 
 <style>
-
-.bg-img {
-  position: absolute;
-  top: 0px;
-  z-index: -999;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50%;
-  background-size: cover;
-}
-
-.nav-link button {
-  background-color: rgba(109, 189, 221, 0.5);
-}
-
-.nav-link:hover button {
-  background-color: rgba(109, 189, 221, 0.5);
-}
-
-.nav-link:active button {
-  background-color: rgba(109, 189, 221, 0.5);
-}
-
 .router-link-active button {
   background-color: rgba(109, 189, 221, 0.5);
   /* border-bottom: 1px #FFF solid; */
@@ -267,30 +247,12 @@ export default {
 }
 
 @media (min-width: 1024px) {
-  .nav-link button {
-  background-color: rgb(0 0 0 / 25%);
-}
-
-.nav-link:hover button {
-  background-color: rgba(255, 255, 255, 15%);
-}
-
-.nav-link:active button {
-  background-color: rgba(255, 255, 255, 15%);
-}
-
-.router-link-active button {
-  background-color: rgba(255, 255, 255, 15%);
-  /* border-bottom: 1px #FFF solid; */
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  z-index: 1;
-  opacity: 0;
+  .router-link-active button {
+    background-color: rgba(255, 255, 255, 15%);
+    /* border-bottom: 1px #FFF solid; */
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
 }
 
 .fade-enter-active,

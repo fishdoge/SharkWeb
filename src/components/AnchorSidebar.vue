@@ -1,17 +1,10 @@
 <template>
   <aside
-    :class="[
-      sidebarOpen
-      //開啟狀態
-      ? 'max-lg:h-[100vh] max-lg:w-[100vw] max-lg:fixed top-0 max-lg:left-0 max-lg:bg-slate-400 max-lg:pt-0 z-30'
-      //關閉狀態
-      : '' ,
-      //通用狀態
-      'lg:w-full z-10']
-
-    "
+    :class="[sidebarOpen ? 'max-lg:h-[100vh] max-lg:w-[100vw] max-lg:fixed top-0 max-lg:left-0 max-lg:bg-slate-400 max-lg:pt-0 z-30' : '' , 'lg:w-full']"
     aria-label="Sidebar">
-    <button :class="[sidebarOpen ? 'max-lg:absolute max-lg:right-0 max-lg:p-4' : '','px-2 lg:pb-[10%]']" @click="setSideBar()" data-dropdown-toggle="dropdownId">
+
+    <!-- 三條線的東西(有些頁面才有) -->
+    <button :class="[sidebarOpen ? 'max-lg:absolute max-lg:right-0 max-lg:p-4' : '','px-2 pt-7 lg:pb-[10%]', classShow('lg', iconShow)]" @click="setSideBar()" data-dropdown-toggle="dropdownId">
       <svg class="lg:block max-lg:hidden" width="32" height="32">
         <line x1="2" x2="32" y1="10" y2="10" style="stroke:rgb(255,255,255);stroke-width:2" />
         <line x1="2" x2="25" y1="20" y2="20" style="stroke:rgb(255,255,255);stroke-width:2" />
@@ -21,9 +14,9 @@
       <font-awesome-icon :icon="sidebarOpen ? ['fas','x'] : ['fas','filter']" class="lg:hidden max-lg:block text-white text-2xl"/>
     </button>
 
-    <div data-dropdown-toggle="dropdownId" :class="sidebarOpen ? 'max-lg:mt-16' : 'hidden'">
-      <h1 class="text-2xl font-bold text-white p-1">FILTER</h1>
-      <hr :class="[sidebarOpen ? '' : 'hidden']">
+    <div data-dropdown-toggle="dropdownId" :class="[sidebarOpen ? 'max-lg:mt-16' : `max-lg:hidden ${iconShow ? 'lg:hidden' : 'block'}` , '']">
+      <h1 :class="['text-2xl font-bold text-white p-1 pt-5', classShow('lg', titleShow)]">FILTER</h1>
+      <hr>
       <div class=" bg-gray-50 rounded mb-10 bg-transparent " :class="[sidebarOpen ? 'bg-gray-50 rounded mb-10' : '']">
         <ul class="space-y-2">
           <li>
@@ -91,7 +84,15 @@ import AnchorIcon from '@/assets/logo.svg'
 export default {
   name: 'AnchorSidebar',
   props: {
-    data: Array
+    data: Array,
+    iconShow: {
+      type: Boolean,
+      default: false
+    },
+    titleShow: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -105,6 +106,9 @@ export default {
     },
     setSideBar() {
       this.sidebarOpen = !this.sidebarOpen
+    },
+    classShow(device, isShow) {
+      return `${device}:${isShow ? 'block' : 'hidden'}`
     }
   }
 }

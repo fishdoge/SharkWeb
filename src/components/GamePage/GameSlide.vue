@@ -15,8 +15,8 @@
       <input type="radio" name="gameSlide" id="g4" />
       <input type="radio" name="gameSlide" id="g5" />
       <!-- next and prev button -->
-      <button class="text-[#fff] text-[80px] fixed top-[25%] left-[3%]" @click="prev">&lt;</button>
-      <button class="text-[#fff] text-[80px] fixed top-[25%] right-[3%]" @click="next">></button>
+      <button class="text-white text-[80px] fixed top-1/4 left-[3%]" @click="prev">&lt;</button>
+      <button class="text-white text-[80px] fixed top-1/4 right-[3%]" @click="next">></button>
       <!-- card -->
       <label for="g1" id="gameSlide1">
         <img src="https://fakeimg.pl/300x350/?text=hahahha" alt="" />

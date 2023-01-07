@@ -1,33 +1,40 @@
 <template>
-  <img class="bg-img" :style="`background-image: url(${bg_img});  position:fixed;`">
-  <div class="pb-9 lg:p-9 lg:h-[calc(100vh-2vh-3.625rem-40px)] h-[calc(100vh-2vh-40px)] flex flex-col lg:flex-row">
+  <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/05分圖層.png')]" >
+  <div class="pt-5 pb-9 lg:pl-9 lg:h-[calc(100vh-2vh-3.625rem-40px)] h-[calc(100vh-2vh-40px)] flex flex-col lg:flex-row">
     <!-- This is Team -->
-    <div v-show="showNum == -1" class="lg:w-64 max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
-      <Anchor :data="sidebar"></Anchor>
+    <div v-show="showNum == -1" class="lg:w-64 max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full lg:pt-5">
+      <Anchor :data="sidebar" :iconShow="false"></Anchor>
     </div>
     <div class="relative lg:flex-1 max-lg:h-full">
+      <!-- 左邊 -->
       <button
-        v-show="showNum == -1"
-        class="absolute top-0 lg:left-[-6rem] z-10 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0 py-auto"
+        :class="['absolute top-0 lg:left-[-2rem] z-40 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0 py-auto max-lg:px-5',
+          showNum == -1 ? '' : 'lg:hidden'
+        ]"
         data-carousel-prev>
         <span @click="prev()" class="inline-flex items-center justify-center w-8 h-8 text-white lg:text-6xl text-3xl">
-          <font-awesome-icon :icon="['fas', 'angle-left']"></font-awesome-icon>
+          &lt;
+          <!-- <font-awesome-icon :icon="['fas', 'angle-left']"></font-awesome-icon> -->
           <span class="sr-only">Previous</span>
         </span>
       </button>
+      <!-- 右邊 -->
       <button
-        v-show="showNum == -1"
         type="button"
-        class="absolute top-0 lg:right-[0] z-10 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none right-0"
+        :class="['absolute top-0 lg:right-[0] z-40 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none right-0 max-lg:px-5',
+          showNum == -1 ? '' : 'lg:hidden'
+        ]"
         data-carousel-next>
         <span @click="next" class="inline-flex items-center justify-center w-8 h-8 text-white lg:text-6xl text-3xl">
-          <font-awesome-icon :icon="['fas', 'chevron-right']"></font-awesome-icon>
+          &gt;
+          <!-- <font-awesome-icon :icon="['fas', 'chevron-right']"></font-awesome-icon> -->
           <!-- <font-awesome-icon :icon="['fas', 'filter']"/> -->
           <!-- icon="fa-sharp fa-solid fa-filter" -->
           <span class="sr-only">Next</span>
         </span>
       </button>
-      <div class="flex flex-col px-9 lg:flex-wrap h-full max-lg:pb-8 md:pb-0 lg:w-[calc(100%-256px)] lg:pr-6 md:justify-around max-lg:justify-between sm:w-full">
+      <!-- 中間 -->
+      <div class="flex flex-col px-9 max-lg:px-16 max-lg:pt-5 lg:flex-wrap h-full max-lg:pb-8 md:pb-0 lg:w-[calc(100%-256px)] lg:pr-6 md:justify-around max-lg:justify-between sm:w-full">
         <!-- This is FishBar Container -->
         <FishCard
           v-show="(showNum == -1 || showNum == key)"
@@ -46,8 +53,6 @@
 <script>
 import FishCard from '@/components/TeamPage/FishCard.vue'
 import Anchor from '@/components/AnchorSidebar.vue'
-import bg from '@/assets/鯊魚網站-PC版/素材/05分圖層.png'
-
 export default {
   components: {
     FishCard,
@@ -55,7 +60,6 @@ export default {
   },
   data() {
     return {
-      bg_img: bg,
       showNum: -1,
       fishCardData: [
         {

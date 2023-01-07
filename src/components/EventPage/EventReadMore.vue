@@ -8,16 +8,16 @@
             :post_content="item.content"
             class="lg:ml-20 mt-20 w-[40%] text-white relative">
           </SwiperPost>
-          <div class="w-[50%] mt-28 pl-6">
+          <div class="w-1/2 mt-28 pl-6">
             <img :src="item.img" class="rounded-[5rem]"/>
           </div>
         </div>
         <img src=""/>
       </div>
-      <button class="swiper-button-prev text-[#fff] text-[50px] absolute left-[0] bottom-[50%] z-10">&lt;</button>
-      <button class="swiper-button-next text-[#fff] text-[50px] absolute right-[0] bottom-[50%] z-10">></button>
+      <button class="swiper-button-prev text-white text-5xl absolute left-0 bottom-1/2 z-10">&lt;</button>
+      <button class="swiper-button-next text-white text-5xl absolute right-0 bottom-1/2 z-10">></button>
       <!-- 這邊的tailwind會被 swiper 套件蓋過去 所以用style -->
-      <div class="swiper-pagination lg:ml-[40%] md:ml-[30%] sm:ml-0" style="position: fixed; bottom: 4rem; width: 25rem;"/>
+      <div class="swiper-pagination lg:ml-[40%] md:ml-[30%] sm:ml-0 fixed bottom-16" style="width: 25rem;" />
     </div>
   </div>
 </template>

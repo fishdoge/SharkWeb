@@ -42,6 +42,11 @@ const routes = [
     name: 'HomeReadMore',
     component: () => import('@/views/HomeReadMore.vue')
   }
+  // {
+  //   path: '/eventReadMore',
+  //   name: 'EventReadMore',
+  //   component: () => import('@/views/EventReadMore.vue')
+  // }
 ]
 
 // 執行路由表

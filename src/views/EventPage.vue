@@ -9,9 +9,19 @@
     TODO: 置中對齊圖片
   -->
   <div>
+    <!-- BG and Sidebar -->
     <div>
-      <img class="bg-img" :style="`background-image: url(${bg_img}); position:fixed`" />
+      <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/背景3.png')] " />
       <!-- <EventSlide></EventSlide> -->
+      <div
+      class="lg:mt-1 lg:px-8 lg:w-64
+        overflow-y-auto absolute top-0 pt-[3.625rem]
+        max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
+      ">
+        <Anchor :data="sideBar" :iconShow="true"></Anchor>
+      </div>
+
+      <!-- Normal Page -->
       <div :class="[readMore ? 'hidden' : '']">
         <div class="pt-12 text-[90px] text-[white] flex justify-center items-center">
           <span class="font-[1000]">MYM</span>
@@ -40,6 +50,8 @@
         </button>
       </div>
       </div>
+
+      <!-- Read More Page -->
       <div :class="[readMore ? '' : 'hidden']">
         <EventReadMore></EventReadMore>
         <div class="bottom-4 left-[10rem] md:bottom-16 md:left-20 absolute text-white btn">
@@ -49,14 +61,12 @@
           <!-- <router-link to="/" type="button" >Back</router-link> -->
         </div>
       </div>
-      <Anchor :data="sideBar"
-      ></Anchor>
     </div>
   </div>
 </template>
 
 <script>
-import bg from '@/assets/鯊魚網站-PC版/素材/06分圖層-1.png'
+// import bg from '@/assets/鯊魚網站-PC版/素材/06分圖層-1.png'
 import EventReadMore from '@/components//EventPage/EventReadMore.vue'
 import TestImg from '@/assets/網站-PC版/素材/金edit.png'
 // import EventSlide from '@/components/EventPage/EventSlide.vue'
@@ -74,7 +84,7 @@ export default {
   },
   data() {
     return {
-      bg_img: bg,
+      // bg_img: bg,
       event: [
         {
           name: 'event',

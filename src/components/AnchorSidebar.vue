@@ -4,7 +4,7 @@
     aria-label="Sidebar">
 
     <!-- 三條線的東西(有些頁面才有) -->
-    <button :class="[sidebarOpen ? 'max-lg:absolute max-lg:right-0 max-lg:p-4' : '','px-2 pt-7 lg:pb-[10%]', classShow('lg', iconShow)]" @click="setSideBar()" data-dropdown-toggle="dropdownId">
+    <button :class="[sidebarOpen ? 'max-lg:absolute max-lg:right-0 max-lg:p-4' : '','p-2 lg:py-0 lg:pb-[10%]', classShow('lg', iconShow)]" @click="setSideBar()" data-dropdown-toggle="dropdownId">
       <svg class="lg:block max-lg:hidden" width="32" height="32">
         <line x1="2" x2="32" y1="10" y2="10" style="stroke:rgb(255,255,255);stroke-width:2" />
         <line x1="2" x2="25" y1="20" y2="20" style="stroke:rgb(255,255,255);stroke-width:2" />

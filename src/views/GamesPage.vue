@@ -8,8 +8,9 @@
     -->
     <!-- background -->
     <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/06分圖層-1.png')]" />
+    <ComingSoon />
     <!-- <div class="fixed team-content w-[100%] h-[100vh] top-0 z-[-1]" style="background: rgba(255, 255, 255, 0.2);box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);"></div> -->
-    <div class="absolute mt-16 w-full h-4/5 bg-red-600">
+    <!-- <div class="absolute mt-16 w-full h-4/5 bg-red-600">
       <div class="h-full swiper gameSwiper">
         <div class="mt-6 swiper-wrapper">
           <div class="swiper-slide" v-for="(item, key) in event" :key="key" :style="`
@@ -23,19 +24,20 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- components -->
     <!-- <GameSlide></GameSlide> -->
-    <div class="lg:mt-1 lg:px-8 lg:w-64 overflow-y-auto absolute top-0 pt-14 max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
+    <!-- <div class="lg:mt-1 lg:px-8 lg:w-64 overflow-y-auto absolute top-0 pt-14 max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
       <Anchor :data="data" :iconShow="true"></Anchor>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import TestImg from '@/assets/鯊魚網站-PC版/test.png'
 // import GameSlide from '@/components/GamePage/GameSlide.vue'
-import Anchor from '@/components/AnchorSidebar.vue'
+// import Anchor from '@/components/AnchorSidebar.vue'
+import ComingSoon from '../components/ComingSoon.vue'
 
 import Swiper, { Navigation } from 'swiper'
 import 'swiper/css'
@@ -44,7 +46,8 @@ Swiper.use([Navigation])
 export default {
   components: {
     // GameSlide,
-    Anchor
+    // Anchor,
+    ComingSoon
   },
   data() {
     return {

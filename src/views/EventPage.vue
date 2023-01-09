@@ -12,17 +12,17 @@
     <!-- BG and Sidebar -->
     <div>
       <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/背景3.png')] " />
+      <ComingSoon />
       <!-- <EventSlide></EventSlide> -->
-      <div
+      <!-- <div
       class="lg:mt-1 lg:px-8 lg:w-64
         overflow-y-auto absolute top-0 pt-[3.625rem]
         max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
       ">
         <Anchor :data="sideBar" :iconShow="true"></Anchor>
-      </div>
-
+      </div> -->
       <!-- Normal Page -->
-      <div :class="[readMore ? 'hidden' : '']">
+      <!-- <div :class="[readMore ? 'hidden' : '']">
         <div class="pt-12 text-[90px] text-[white] flex justify-center items-center">
           <span class="font-[1000]">MYM</span>
           <span class="font-light">ETANOMICS</span>
@@ -36,20 +36,19 @@
             </div>
             <div class="pr-[10%] mt-8 swiper-pagination"></div>
           </div>
-          <!-- <hr class="relative bottom-[1.65rem] left-[29%] w-[41%] border-white"/> -->
         </div>
         <div class="text-[1.2rem] text-center text-[white] flex justify-center align-middle flex-col">
-        <div class="max-w-[45vw] m-auto">
-          A collection of 5000 sharks gathered to navigate the world of Metanomics through<br>meaningful social impact activities
+          <div class="max-w-[45vw] m-auto">
+            A collection of 5000 sharks gathered to navigate the world of Metanomics through<br>meaningful social impact activities
+          </div>
+          <button
+            @click="showReadMore()"
+            type="button"
+            class="m-[0_auto] px-4 py-1 text-lg bg-gray-900 bg-opacity-60 rounded-lg border-2 border-teal-700 font-light">
+            Read More <font-awesome-icon :icon="['fas', 'chevron-right']"/>
+          </button>
         </div>
-        <button
-          @click="showReadMore()"
-          type="button"
-          class="m-[0_auto] px-4 py-1 text-lg bg-gray-900 bg-opacity-60 rounded-lg border-2 border-teal-700 font-light">
-          Read More <font-awesome-icon :icon="['fas', 'chevron-right']"/>
-        </button>
-      </div>
-      </div>
+      </div> -->
 
       <!-- Read More Page -->
       <div :class="[readMore ? '' : 'hidden']">
@@ -58,7 +57,6 @@
           <button @click="showReadMore()" class="px-4 py-1 text-lg bg-gray-900 bg-opacity-60 rounded-lg border-2 border-cyan-500">
             Back
           </button>
-          <!-- <router-link to="/" type="button" >Back</router-link> -->
         </div>
       </div>
     </div>
@@ -67,10 +65,11 @@
 
 <script>
 // import bg from '@/assets/鯊魚網站-PC版/素材/06分圖層-1.png'
-import EventReadMore from '@/components//EventPage/EventReadMore.vue'
+// import EventReadMore from '@/components//EventPage/EventReadMore.vue'
 import TestImg from '@/assets/網站-PC版/素材/金edit.png'
 // import EventSlide from '@/components/EventPage/EventSlide.vue'
-import Anchor from '@/components/AnchorSidebar.vue'
+// import Anchor from '@/components/AnchorSidebar.vue'
+import ComingSoon from '../components/ComingSoon.vue'
 
 import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
@@ -79,8 +78,9 @@ Swiper.use([Navigation, Pagination])
 
 export default {
   components: {
-    Anchor,
-    EventReadMore
+    // Anchor,
+    // EventReadMore
+    ComingSoon
   },
   data() {
     return {

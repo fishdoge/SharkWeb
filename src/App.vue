@@ -8,16 +8,15 @@
   -->
   <div>
     <!-- Navbar -->
-    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pb-[3.625rem] pt-[2vh] z-10">
-      <div class="container flex flex-wrap items-center justify-between lg:mx-auto">
+    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pt-8 pt-4 z-10">
+      <div class="flex flex-1 flex-wrap items-center justify-between lg:mx-auto">
         <!-- Left Image and title -->
         <router-link to="/" class="flex items-center">
-          <span class="absolute left-7 top-6">
-            <!-- class="w-10 h-12 mr-3 logo bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png')] hover:bg-[url('@/assets/鯊魚網站-PC版/素材/閃電(GIMP)shine.png')]" -->
+          <span>
             <img
               :src="lightningURL"
               @mouseover="lightningURL = WEB_SITE_LOGO_SHINE" @mouseleave="lightningURL = WEB_SITE_IMG"
-              class="w-10 hover:w-20 ml-5 hover:ml-0 mt-5 hover:mt-0"
+              class="w-10"
               alt=""
             />
           </span>
@@ -33,14 +32,16 @@
           aria-controls="navbar-default"
           aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <font-awesome-icon :icon="this.navbarOpen ? ['fas','x'] : ['fas','bars']" class="w-6 h-6 text-black"/>
+          <font-awesome-icon
+            :icon="this.navbarOpen ? ['fas','x'] : ['fas','bars']"
+            :class="[this.navbarOpen ? 'text-black' : 'text-white', 'w-6 h-6']"/>
         </button>
 
         <!-- Phone Right Button with data-->
         <div class="w-full lg:w-auto lg:block z-30" id="navbar-default"
           :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']">
           <ul
-            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:absolute lg:right-10 lg:top-6 w-80 lg:w-fit h-full lg:h-fit bg-[rgba(186,197,202,0.86)] lg:bg-transparent lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
+            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:right-10 lg:top-4 w-80 lg:w-fit h-full lg:h-fit bg-[rgba(186,197,202,0.86)] lg:bg-transparent lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
 
             <!-- 把按鈕全部丟進來 -->
 
@@ -57,14 +58,14 @@
                     data-dropdown-toggle="dropdownShoppingCar"
                     class="block transition duration-100 ease-in-out w-full
                       px-2 py-1 disabled:cursor-not-allowed focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 border border-transparent shadow-sm rounded
-                      hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] md:bg-gray-800 md:hover:bg-gray-800 md:active:bg-gray-800 md:bg-opacity-60 md:hover:bg-opacity-40"
+                      hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-600 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
                     @click="setShoppingCarOpen(item)">
                     <div v-if="item.name">
                       {{ item.name }}
                     </div>
                     <div v-else-if="item.icon[0]" class="lg:w-fit text-black h-5 lg:text-white flex justify-between max-md:w-full items-center">
                       <span class="lg:hidden">BUY</span>
-                      <font-awesome-icon :icon="item.icon" class="max-md:mr-1.5"></font-awesome-icon>
+                      <font-awesome-icon :icon="item.icon" class="max-lg:mr-1.5"></font-awesome-icon>
                     </div>
                     <div v-else>
                       NO NAME
@@ -72,7 +73,7 @@
                   </button>
                   <!-- dropShoppingCar -->
                   <div id="dropdownShoppingCar" :class="[item.shoppingCar ? 'block rounded shadow-lg' : 'hidden']"
-                    class="mt-2 md:absolute md:w-full lg:border-2 lg:border-cyan-800 lg:rounded-lg lg:bg-opacity-70 lg:bg-black w-full  lg:w-24 divide-y  divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
+                    class="mt-2 md:absolute md:w-full lg:border-cyan-800 lg:rounded-lg lg:bg-opacity-70 lg:bg-black w-full lg:w-24 divide-y divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
                   >
                     <ul
                       class="py-1 w-fit text-sm text-gray-700 dark:text-gray-200 pl-1 lg:text-right"
@@ -91,7 +92,7 @@
                 <div v-else>
                   <router-link :to="item.path" class="nav-link">
                     <button
-                      class="block px-2 py-1 mb-4 w-full transition duration-100 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed text-black lg:text-white border border-transparent shadow-sm rounded hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] md:bg-gray-800 md:hover:bg-gray-800 md:active:bg-gray-800 md:bg-opacity-60 md:hover:bg-opacity-40"
+                      class="block px-2 py-1 mb-4 w-full transition duration-100 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed text-black lg:text-white border border-transparent shadow-sm rounded hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-800 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
                     >
                       <div class="w-fit" v-if="item.name">
                         {{ item.name }}
@@ -111,7 +112,7 @@
                 <a :href="item.path" target="_blank">
                   <button
                     class="block w-full px-2 py-1 mb-4 transition duration-100 ease-in-out first-letter:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-white hover:bg-gray-600 border border-transparent shadow-sm rounded
-                    bg-[#90bdd6] active:bg-[#90bdd6] md:bg-gray-800 md:hover:bg-gray-800 md:active:bg-gray-800 md:bg-opacity-60 md:hover:bg-opacity-40"
+                    bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-800 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
                     @click="setNavbarOpen(item)">
                     <div v-if="item.name" >
                       {{ item.name }}
@@ -145,7 +146,7 @@
       </div>
     </nav>
 
-    <router-view ></router-view>
+    <router-view></router-view>
   </div>
 </template>
 

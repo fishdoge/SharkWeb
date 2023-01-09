@@ -73,7 +73,7 @@
                   </button>
                   <!-- dropShoppingCar -->
                   <div id="dropdownShoppingCar" :class="[item.shoppingCar ? 'block rounded shadow-lg' : 'hidden']"
-                    class="mt-2 md:absolute md:w-full lg:border-cyan-800 lg:rounded-lg lg:bg-opacity-70 lg:bg-black w-full lg:w-24 divide-y divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
+                    class="mt-2 md:absolute md:w-full lg:border-2 lg:border-cyan-800 lg:rounded-lg lg:bg-opacity-70 lg:bg-black w-full lg:w-24 divide-y divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
                   >
                     <ul
                       class="py-1 w-fit text-sm text-gray-700 dark:text-gray-200 pl-1 lg:text-right"
@@ -83,7 +83,7 @@
                         :key="key"
                         class="pt-1 pb-1"
                       >
-                        <a :href="dropDownItem.path" class="text-white max-md:text-black">{{ dropDownItem.name }}</a>
+                        <a :href="dropDownItem.path" class="text-white max-lg:text-black">{{ dropDownItem.name }}</a>
                       </li>
                     </ul>
                   </div>

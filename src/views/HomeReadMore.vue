@@ -14,8 +14,8 @@
       <!-- 這邊的tailwind會被 swiper 套件蓋過去 所以用style -->
       <!-- <div class="swiper-pagination lg:ml-[40%] md:ml-[30%] sm:ml-0" style="position: fixed; bottom: 4rem; width: 25rem;"/> -->
     </div>
-    <div class="absolute bottom-12 left-[2rem] md:bottom-12 md:left-12 text-white">
-      <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-opacity-20 bg-gray-900 rounded-lg border-opacity-40 border-2 border-cyan-400 z-50">
+    <div class="flex flex-1 flex-row pl-5 lg:pl-12 relative bottom-0 mb-12 mt-12">
+      <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-opacity-20 bg-gray-900 rounded-lg border-opacity-40 border-2 border-cyan-400 z-50 text-white">
         BACK
       </button>
       <!-- <router-link to="/" type="button" >Back</router-link> -->
@@ -62,7 +62,6 @@ export default {
           title: 'page3',
           content: '789'
         }
-
       ]
     }
   },

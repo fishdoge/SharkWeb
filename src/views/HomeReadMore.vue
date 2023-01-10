@@ -1,6 +1,10 @@
 <template>
   <div>
     <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/01主頁面-三軸式分頁.png')]" />
+    <!-- Timer -->
+    <!-- <div>
+      <p class="text-white">{{ dateTime.hours }}:{{ dateTime.minutes }}:{{ dateTime.seconds }}</p>
+    </div> -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div v-for="(item, key) in post" :key="key" class="swiper-slide">
@@ -33,7 +37,7 @@ import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 Swiper.use([Navigation, Pagination])
-
+const date = new Date()
 export default {
   components: {
     SwiperPost
@@ -62,7 +66,26 @@ export default {
           title: 'page3',
           content: '789'
         }
-      ]
+      ],
+      dateTime: {
+        hours: date.getHours(),
+        minutes: date.getMinutes(),
+        seconds: date.getSeconds()
+      },
+      timer: undefined
+    }
+  },
+  methods: {
+    generateRandomNDigits(n) {
+      return Math.floor(Math.random() * (9 * (Math.pow(10, n)))) + (Math.pow(10, n))
+    },
+    setDateTime() {
+      const date = new Date()
+      this.dateTime = {
+        hours: date.getHours(),
+        minutes: date.getMinutes(),
+        seconds: date.getSeconds()
+      }
     }
   },
   mounted() {
@@ -79,6 +102,12 @@ export default {
     return {
       swiper
     }
+  },
+  beforeMount() {
+    this.timer = setInterval(this.setDateTime, 1000)
+  },
+  beforeUnmount() {
+    clearInterval(this.timer)
   }
 }
 </script>

@@ -53,6 +53,18 @@
 <script>
 import FishCard from '@/components/TeamPage/FishCard.vue'
 import Anchor from '@/components/AnchorSidebar.vue'
+import JLShark from '@/assets/Team/JL Shark.png'
+import KJShark from '@/assets/Team/KJ Shark.png'
+import DYShark from '@/assets/Team/DY Shark.png'
+import LHShark from '@/assets/Team/LH Shark.png'
+import NLShark from '@/assets/Team/NL Shark.png'
+import MTShark from '@/assets/Team/MT Shark.png'
+import MJShark from '@/assets/Team/MJ Shark.png'
+import JBShark from '@/assets/Team/JB Shark.png'
+import MSShark from '@/assets/Team/MS Shark.png'
+import AYShark from '@/assets/Team/AY Shark.png'
+import TSShark from '@/assets/Team/TS Shark.png'
+import SWShark from '@/assets/Team/SW Shark.png'
 export default {
   components: {
     FishCard,
@@ -66,63 +78,84 @@ export default {
           name: 'JL Shark',
           title: 'Development',
           story: 'Director of vibes and resident visionary. Here to shake up the metaverse!',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: JLShark,
           open: false
         },
         {
           name: 'KJ Shark',
           title: 'Development',
           story: 'The one who always has your back. Practical, grounded, and with the biggest heart',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: KJShark,
           open: false
         },
         {
           name: 'DY Shark',
           title: 'Development',
           story: 'The glue that holds everyone together. Will fight KJ for the spot of biggest heart',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: DYShark,
           open: false
         },
         {
           name: 'LH Shark',
           title: ' Marketing Lead',
           story: 'The hype man for all things Metanomics',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: LHShark,
           open: false
         },
         {
           name: 'NL Shark',
           title: 'Lead Content Editor ',
           story: 'Oversees all content with her discerning eyes',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: NLShark,
           open: false
         },
         {
           name: 'MT Shark',
           title: 'Art Design Lead',
           story: 'Fashionably late, but always looking fly',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: MTShark,
           open: false
         },
         {
           name: 'MJ Shark',
           title: ' Social Media Lead',
           story: 'Here to make sure we are always showing our best side to the world!',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: MJShark,
           open: false
         },
         {
           name: 'JB Shark',
           title: 'Lead Content Creator',
           story: 'Artistic and talented across different mediums. She’s always reppin’ hard! ',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: JBShark,
           open: false
         },
         {
           name: 'MS Shark',
           title: ' Metaverse Tech Lead',
           story: 'In charge of the fun! First to show up at the party, and last to leave… mostly because the lights won’t stay on without him',
-          img: 'https://sharkoutlawsquad.com/_next/static/images/shark-justice-3-1867050b1f698d049c8587d29124ada5.jpg',
+          img: MSShark,
+          open: false
+        },
+        {
+          name: 'AY Shark',
+          title: 'Web 3 Development',
+          story: 'Runs on coffee. Rarely touches grass. Might hiss at the sun',
+          img: AYShark,
+          open: false
+        },
+        {
+          name: 'TS Shark',
+          title: 'Web 3 Development',
+          story: 'Just call me the exterminator. Here to make sure all our backend tech is bug free',
+          img: TSShark,
+          open: false
+        },
+        {
+          name: 'SW Shark',
+          title: 'Web3 Development',
+          story: 'Do not disturb. Busy coding.',
+          img: SWShark,
           open: false
         }
       ],

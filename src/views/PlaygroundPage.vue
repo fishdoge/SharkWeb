@@ -69,7 +69,23 @@
 <script>
 import Anchor from '@/components/AnchorSidebar.vue'
 import SharkImg from '@/assets/鯊魚網站-PC版/test.png'
-
+import SharkImg1 from '@/assets/網站-PC版/icon/1呼吸.png'
+import SharkImg2 from '@/assets/網站-PC版/icon/2慢游.png'
+import SharkImg3 from '@/assets/網站-PC版/icon/3疾游.png'
+import SharkImg4 from '@/assets/網站-PC版/icon/4戰鬥姿勢.png'
+import SharkImg5 from '@/assets/網站-PC版/icon/5攻擊-1.png'
+import SharkImg6 from '@/assets/網站-PC版/icon/6攻擊-2.png'
+import SharkImg7 from '@/assets/網站-PC版/icon/7攻擊-3.png'
+import SharkImg8 from '@/assets/網站-PC版/icon/8受傷.png'
+import SharkImg9 from '@/assets/網站-PC版/icon/9死亡.png'
+import SharkImg10 from '@/assets/網站-PC版/icon/10施法.png'
+import SharkImg11 from '@/assets/網站-PC版/icon/11遠程射擊.png'
+import SharkImg12 from '@/assets/網站-PC版/icon/12自我施法.png'
+import SharkImg13 from '@/assets/網站-PC版/icon/13打招呼.png'
+import SharkImg14 from '@/assets/網站-PC版/icon/14高興.png'
+import SharkImg15 from '@/assets/網站-PC版/icon/15難過.png'
+import SharkImg16 from '@/assets/網站-PC版/icon/16生氣.png'
+import SharkImg17 from '@/assets/網站-PC版/icon/17跳舞.png'
 import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -89,43 +105,178 @@ export default {
         {
           name: 'shark1',
           sharkImg: SharkImg,
-          actionIcon: SharkImg,
+          actionIcon: SharkImg1,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'shark1 title',
-          content: 'shark1 content'
+          title: 'Idle',
+          content: 'Chillin’ like a villain'
         },
         {
           name: 'shark2',
           sharkImg: SharkImg,
-          actionIcon: SharkImg,
+          actionIcon: SharkImg2,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'shark2 title',
-          content: 'shark2 content'
+          title: 'Swim',
+          content: 'Cruisin’ through the waters of the metaverse'
         },
         {
           name: 'shark3',
           sharkImg: SharkImg,
-          actionIcon: SharkImg,
+          actionIcon: SharkImg3,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'shark3 title',
-          content: 'shark3 content'
+          title: 'Burst',
+          content: 'Living life in the fast lane'
         },
         {
           name: 'shark4',
           sharkImg: SharkImg,
-          actionIcon: SharkImg,
+          actionIcon: SharkImg4,
           action: ['action1', 'action2'],
           isHide: true,
-          title: 'shark4 title',
-          content: 'shark4 content'
+          title: 'Attack Stance',
+          content: 'Get ready to fight!'
         },
         {
           name: 'shark5',
           sharkImg: SharkImg,
-          actionIcon: SharkImg,
+          actionIcon: SharkImg5,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Shark Bite',
+          content: 'Take a chunk out of your opponent!'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg6,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Tail Whip',
+          content: 'Strike fast light lightning'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg7,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Death Roll',
+          content: 'Show your opponent you mean business with this heavy attack'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg8,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Injury',
+          content: 'Ouch!'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg9,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'K.O.',
+          content: 'You have been defeated! Try again!t'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg10,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Spellcast Stance',
+          content: 'Target acquired'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg11,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Spellcast ',
+          content: 'Shoot a curse or two at your opponent'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg12,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Cast Buff',
+          content: 'Cast a buff on yourself to get a boost!'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg13,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Greeting',
+          content: 'Hello there neighbor!'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg14,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Laugh',
+          content: 'Laughter is the best medicine '
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg15,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Sad',
+          content: 'Feeling a little blue? '
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg16,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Angry',
+          content: 'Grrrrr! You don’t want to see me mad!'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg17,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'Dance',
+          content: 'Dance like nobody’s watching!'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg6,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'shark5 title',
+          content: 'shark5 content'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg7,
+          action: ['action1', 'action2'],
+          isHide: true,
+          title: 'shark5 title',
+          content: 'shark5 content'
+        },
+        {
+          name: 'shark5',
+          sharkImg: SharkImg,
+          actionIcon: SharkImg8,
           action: ['action1', 'action2'],
           isHide: true,
           title: 'shark5 title',

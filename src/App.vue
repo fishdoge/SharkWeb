@@ -22,31 +22,48 @@
           </span>
           <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ SITE_CONFIG.website_name }}</span> -->
         </router-link>
-
-        <!-- 手機板 Navbar 三個點 -->
+        <!-- navbar threeLines open nav -->
         <button
-          @click="setNavbarOpen"
+          @click="setNavbarOpen(true)"
           data-collapse-toggle="navbar-default"
           type="button"
-          :class="[navbarOpen ? 'z-40' : 'z-20' , 'items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden focus:outline-none focus:ring-0 dark:text-gray-400 dark:hover:bg-gray-700  dark:focus:ring-gray-600']"
+          class="z-20 items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden focus:outline-none focus:ring-0 dark:text-gray-400 dark:hover:bg-gray-700  dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <font-awesome-icon
-            :icon="this.navbarOpen ? ['fas','x'] : ['fas','bars']"
-            :class="[this.navbarOpen ? 'text-black' : 'text-white', 'w-6 h-6']"/>
+          <svg class="w-10 h-10 text-black">
+            <line x1="0" x2="40" y1="13" y2="13" class="stroke-white stroke-2"/>
+            <line x1="10" x2="40" y1="26" y2="26" class="stroke-white stroke-2"/>
+            <line x1="0" x2="40" y1="39" y2="39" class="stroke-white stroke-2"/>
+          </svg>
         </button>
 
-        <!-- Phone Right Button with data-->
+        <!-- Right Button with data-->
         <div class="w-full lg:w-auto lg:block z-30" id="navbar-default"
-          :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']">
+          :class="[!navbarOpen && 'hidden' , 'block rounded shadow-lg']">
           <ul
-            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:right-10 lg:top-4 w-80 lg:w-fit h-full lg:h-fit bg-[rgba(186,197,202,0.86)] lg:bg-transparent lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
+            class="flex flex-col p-3 mt-0 pl-0 pr-0 absolute top-0 right-0 w-80
+            lg:mt-4 lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0
+            lg:absolute lg:right-10 lg:top-6 lg:w-fit lg:h-fit lg:bg-transparent
+            max-lg:pt-[2vh] max-lg:item-end
+            h-full bg-[rgba(184,208,218,0.95)]
+            dark:border-gray-700
+            ">
 
             <!-- 把按鈕全部丟進來 -->
 
             <!-- offset -->
-            <li v-for="(item, key) in data" :key="key" class="relative top-11 lg:top-0">
+            <!-- close btn for navbar -->
+            <button
+              @click="setNavbarOpen(false)"
+              type="button"
+              class="z-40 p-2 lg:hidden flex justify-end">
+              <span class="sr-only">Close main menu</span>
+              <font-awesome-icon icon="fa-solid fa-x" class="w-8 h-8 text-black p-2"/>
+            </button>
+            <li v-for="(item, key) in data" :key="key" class="
+            lg:relative lg:top-0
+            ">
 
               <!-- 如果位置不含 http 也就是網址 -->
               <div v-if="!item.path.includes('http')">
@@ -112,8 +129,9 @@
                 <a :href="item.path" target="_blank">
                   <button
                     class="block w-full px-2 py-1 mb-4 transition duration-100 ease-in-out first-letter:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-white hover:bg-gray-600 border border-transparent shadow-sm rounded
-                    bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-800 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
-                    @click="setNavbarOpen(item)">
+                    bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-800 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40
+                    "
+                    @click="setNavbarOpen()">
                     <div v-if="item.name" >
                       {{ item.name }}
                     </div>
@@ -157,6 +175,8 @@ import CONFIG from '@/assets/website_cfg.json'
 import SITE_IMG from '@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png'
 import SHINE_IMG from '@/assets/閃電ICON發光1.png'
 import IG from '@/assets/PNG素材/instagram.png'
+import DC from '@/assets/PNG素材/discord.png'
+import TW from '@/assets/PNG素材/twitter.png'
 
 export default {
   data() {
@@ -190,15 +210,21 @@ export default {
         },
         {
           path: 'https://google.com',
-          icon: ['fab', 'discord']
+          icon: ['fab', 'discord'],
+          iconUrl: 'src/assets/PNG素材/discord.png',
+          image: DC
         },
         {
           path: 'https://google.com',
-          icon: ['fab', 'twitter']
+          icon: ['fab', 'twitter'],
+          iconUrl: 'src/assets/PNG素材/twitter.png',
+          image: TW
+
         },
         {
           path: 'https://google.com',
           icon: ['fab', 'instagram'],
+          iconUrl: 'src/assets/PNG素材/instagram.png',
           image: IG
         },
         {
@@ -228,8 +254,12 @@ export default {
     }
   },
   methods: {
-    setNavbarOpen() {
-      this.navbarOpen = !this.navbarOpen
+    setNavbarOpen(open = null) {
+      if (open == null) {
+        this.navbarOpen = !this.navbarOpen
+        return
+      }
+      this.navbarOpen = open
     },
     setShoppingCarOpen(item) {
       item.shoppingCar = !item.shoppingCar

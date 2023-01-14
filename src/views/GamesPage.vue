@@ -26,10 +26,14 @@
       </div>
     </div> -->
     <!-- components -->
-    <!-- <GameSlide></GameSlide> -->
-    <!-- <div class="lg:mt-1 lg:px-8 lg:w-64 overflow-y-auto absolute top-0 pt-14 max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
-      <Anchor :data="data" :iconShow="true"></Anchor>
-    </div> -->
+    <div
+      class="lg:mt-1 lg:px-8
+        overflow-y-auto absolute top-0 pt-20
+        max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
+      ">
+      <Anchor :data="data" :iconShow="true"
+      ></Anchor>
+    </div>
   </div>
 </template>
 

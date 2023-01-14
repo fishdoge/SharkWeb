@@ -1,14 +1,14 @@
 <template>
   <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/05分圖層.png')]" >
-  <div class="pt-5 pb-9 lg:pl-9 lg:h-[calc(100vh-2vh-3.625rem-40px)] h-[calc(100vh-2vh-40px)] flex flex-col lg:flex-row">
+  <div class="pb-9 lg:pl-9 lg:h-[calc(100vh-2vh-3.625rem-40px)] h-[calc(100vh-2vh-40px)] flex flex-col lg:flex-row">
     <!-- This is Team -->
-    <div v-show="showNum == -1" class="lg:w-64 max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full lg:pt-5">
-      <Anchor :data="sidebar" :iconShow="false"></Anchor>
+    <div v-show="showNum == -1" class="max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
+      <Anchor :data="sidebar"></Anchor>
     </div>
     <div class="relative lg:flex-1 max-lg:h-full">
       <!-- 左邊 -->
       <button
-        :class="['absolute top-0 lg:left-[-2rem] z-40 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0 py-auto max-lg:px-5',
+        :class="['absolute top-0 lg:left-[-6rem] z-20 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0 py-auto max-lg:px-5',
           showNum == -1 ? '' : 'lg:hidden'
         ]"
         data-carousel-prev>
@@ -21,7 +21,7 @@
       <!-- 右邊 -->
       <button
         type="button"
-        :class="['absolute top-0 lg:right-[0] z-40 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none right-0 max-lg:px-5',
+        :class="['absolute top-0 lg:right-0 z-20 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none right-0 max-lg:px-5',
           showNum == -1 ? '' : 'lg:hidden'
         ]"
         data-carousel-next>
@@ -53,6 +53,7 @@
 <script>
 import FishCard from '@/components/TeamPage/FishCard.vue'
 import Anchor from '@/components/AnchorSidebar.vue'
+// import bg from '@/assets/鯊魚網站-PC版/素材/05分圖層.png'
 import JLShark from '@/assets/Team/JL Shark.png'
 import KJShark from '@/assets/Team/KJ Shark.png'
 import DYShark from '@/assets/Team/DY Shark.png'
@@ -65,6 +66,10 @@ import MSShark from '@/assets/Team/MS Shark.png'
 import AYShark from '@/assets/Team/AY Shark.png'
 import TSShark from '@/assets/Team/TS Shark.png'
 import SWShark from '@/assets/Team/SW Shark.png'
+import { gsap } from 'gsap'
+import { Flip } from 'gsap/Flip'
+
+gsap.registerPlugin(Flip)
 export default {
   components: {
     FishCard,

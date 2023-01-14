@@ -14,9 +14,9 @@
       <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/背景3.png')] " />
       <ComingSoon />
       <!-- <EventSlide></EventSlide> -->
-      <!-- <div
-      class="lg:mt-1 lg:px-8 lg:w-64
-        overflow-y-auto absolute top-0 pt-[3.625rem]
+      <div
+      class="lg:mt-1 lg:px-8
+        overflow-y-auto absolute top-0 pt-20
         max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
       ">
         <Anchor :data="sideBar" :iconShow="true"></Anchor>

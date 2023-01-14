@@ -9,11 +9,12 @@
 
     <!-- Sidebar -->
     <div
-      class="lg:mt-1 lg:px-8 lg:w-64
-        overflow-y-auto relative top-0
+      class="
+        lg:mt-1 lg:px-8
+        overflow-y-auto absolute top-0 pt-20
         max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
       ">
-      <Anchor :data="sidebar" :iconShow="true"></Anchor>
+      <Anchor class="pl-2" :data="sidebar" :iconShow="true"></Anchor>
     </div>
 
     <!-- 底下的鯊魚種類 -->
@@ -86,6 +87,7 @@ import SharkImg14 from '@/assets/網站-PC版/icon/14高興.png'
 import SharkImg15 from '@/assets/網站-PC版/icon/15難過.png'
 import SharkImg16 from '@/assets/網站-PC版/icon/16生氣.png'
 import SharkImg17 from '@/assets/網站-PC版/icon/17跳舞.png'
+
 import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'

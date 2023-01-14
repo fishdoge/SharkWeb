@@ -1,57 +1,7 @@
-<!--
-README.md
-裡面至少要寫怎麼build 跟debug還有需要什麼檔案
--->
+# Vue 3 + Vite
 
-<!--專案名稱: MYMETASHARK-->
-# 鯊魚 NFT 專案
-快速導覽：[環境設定](#環境設定) [開始執行](#開始執行) [開始打包](#開始打包)
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## 環境設定
-### 安裝基本軟體
-1. 安裝 Vscode https://visualstudio.microsoft.com/zh-hant/downloads/
-2. 安裝 git https://git-scm.com/downloads
-3. 安裝 node.js https://nodejs.org/zh-tw/download/
+## Recommended IDE Setup
 
-### 開始編譯
-```bash
-# 將此專案 clone 下來
-git clone https://github.com/fishdoge/SharkWeb
-
-# 進入此專案資料夾
-cd SharkWeb/
-```
-#### NPM
-```bash
-npm install
-```
-
-#### YARN
-```bash
-yarn install
-```
-
-### 開始執行
-#### NPM
-```bash
-npm run dev
-```
-
-#### YARN
-```bash
-yarn run dev
-```
-
-## 開始打包
-
-### NPM
-
-```bash
-npm run build 
-```
-
-### YARN
-
-```bash
-yarn run build
-```
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).

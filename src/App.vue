@@ -1,263 +1,172 @@
 <template>
-  <!--
-    TODO: 修復 navbar 在不同的螢幕尺寸會有不對稱的問題
-    TODO: 修復字體的問題
-    TODO: 新增底下的 Read Full Story 的按鈕(做一個新的 views 來放置)
-    TODO: 調整字體的大小
-    TODO: 拿掉底下的 CSS
-  -->
-  <div>
-    <!-- Navbar -->
-    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pt-8 pt-4 z-10">
-      <div class="flex flex-1 flex-wrap items-center justify-between lg:mx-auto">
-        <!-- Left Image and title -->
-        <router-link to="/" class="flex items-center lg:ml-3">
-          <span>
-            <img
-              :src="lightningURL"
-              @mouseover="lightningURL = WEB_SITE_LOGO_SHINE" @mouseleave="lightningURL = WEB_SITE_IMG"
-              class="w-10"
-              alt=""
-            />
-          </span>
-          <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ SITE_CONFIG.website_name }}</span> -->
-        </router-link>
-
-        <!-- 手機板 Navbar 三個點 -->
-        <button
-          @click="setNavbarOpen"
-          data-collapse-toggle="navbar-default"
-          type="button"
-          :class="[navbarOpen ? 'z-40' : 'z-20' , 'items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden focus:outline-none focus:ring-0 dark:text-gray-400 dark:hover:bg-gray-700  dark:focus:ring-gray-600']"
-          aria-controls="navbar-default"
-          aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <font-awesome-icon
-            :icon="this.navbarOpen ? ['fas','x'] : ['fas','bars']"
-            :class="[this.navbarOpen ? 'text-black' : 'text-white', 'w-6 h-6']"/>
-        </button>
-
-        <!-- Phone Right Button with data-->
-        <div class="w-full lg:w-auto lg:block z-30" id="navbar-default"
-          :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']">
-          <ul
-            class="flex flex-col p-3 mt-0 lg:mt-4 pl-0 pr-0 absolute top-[0] right-0 lg:right-10 lg:top-4 w-80 lg:w-fit h-full lg:h-fit bg-[rgba(186,197,202,0.86)] lg:bg-transparent lg:flex-row lg:space-x-2 lg:text-sm lg:font-medium lg:border-0 ">
-
-            <!-- 把按鈕全部丟進來 -->
-
-            <!-- offset -->
-            <li v-for="(item, key) in data" :key="key" class="relative top-11 lg:top-0">
-
-              <!-- 如果位置不含 http 也就是網址 -->
-              <div v-if="!item.path.includes('http')">
-                <!-- 購物車 -->
-                <div v-if="item.path == ''">
-                  <button
-                    type="button"
-                    id="dropdownDefault"
-                    data-dropdown-toggle="dropdownShoppingCar"
-                    class="block transition duration-100 ease-in-out w-full
-                      px-2 py-1 disabled:cursor-not-allowed focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 border border-transparent shadow-sm rounded
-                      hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-600 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
-                    @click="setShoppingCarOpen(item)">
-                    <div v-if="item.name">
-                      {{ item.name }}
-                    </div>
-                    <div v-else-if="item.icon[0]" class="lg:w-fit text-black h-5 lg:text-white flex justify-between max-md:w-full items-center">
-                      <span class="lg:hidden">BUY</span>
-                      <font-awesome-icon :icon="item.icon" class="max-lg:mr-1.5"></font-awesome-icon>
-                    </div>
-                    <div v-else>
-                      NO NAME
-                    </div>
-                  </button>
-                  <!-- dropShoppingCar -->
-                  <div id="dropdownShoppingCar" :class="[item.shoppingCar ? 'block rounded shadow-lg' : 'hidden']"
-                    class="mt-2 md:absolute md:w-full lg:border-2 lg:border-cyan-800 lg:rounded-lg lg:bg-opacity-70 lg:bg-black w-full lg:w-24 divide-y divide-gray-100 shadow max-lg:mt-0 max-lg:bg-[#6dbddd80] max-lg:px-8 right-0"
-                  >
-                    <ul
-                      class="py-1 w-fit text-sm text-gray-700 dark:text-gray-200 pl-1 lg:text-right"
-                      aria-labelledby="dropdownDefault">
-                      <li
-                        v-for="(dropDownItem, key) in item.dropDown"
-                        :key="key"
-                        class="pt-1 pb-1"
-                      >
-                        <a :href="dropDownItem.path" class="text-white max-lg:text-black">{{ dropDownItem.name }}</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- 不是網址 -->
-                <div v-else>
-                  <router-link :to="item.path" class="nav-link">
-                    <button
-                      class="block px-2 py-1 mb-4 w-full transition duration-100 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed text-black lg:text-white border border-transparent shadow-sm rounded hover:bg-gray-600 bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-800 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
-                    >
-                      <div class="w-fit" v-if="item.name">
-                        {{ item.name }}
-                      </div>
-                      <div v-else-if="item.icon[0]" >
-                        <font-awesome-icon :icon="item.icon"></font-awesome-icon>
-                      </div>
-                      <div v-else>
-                        NO NAME
-                      </div>
-                    </button>
-                  </router-link>
-                </div>
-              </div>
-              <!-- 如果位置含 http 也就是網址 -->
-              <div v-else>
-                <a :href="item.path" target="_blank">
-                  <button
-                    class="block w-full px-2 py-1 mb-4 transition duration-100 ease-in-out first-letter:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-white hover:bg-gray-600 border border-transparent shadow-sm rounded
-                    bg-[#90bdd6] active:bg-[#90bdd6] lg:bg-gray-800 lg:hover:bg-gray-800 lg:active:bg-gray-800 lg:bg-opacity-60 lg:hover:bg-opacity-40"
-                    @click="setNavbarOpen(item)">
-                    <div v-if="item.name" >
-                      {{ item.name }}
-                    </div>
-
-                    <div v-else-if="item.image" class="w-4 h-5">
-                      <div class="lg:hidden inline-block text-black">{{ item.icon[1].toUpperCase() }}</div>
-                      <img :src="item.image" class="lg:absolute w-fit lg:top-1 lg:h-5 lg:right-0.5 lg:drop-shadow-[0px_0_rgba(0,0,0,0)] lg:left-[1.5px] right-[-300px] top-[410px] h-6 drop-shadow-[-306px_0_rgba(0,0,0,1)] fixed" alt="" />
-                    </div>
-
-                    <div v-else-if="item.icon[0]" class="w-fit text-black lg:text-white">
-                      <div class="lg:hidden inline-block ">{{ item.icon[1].toUpperCase() }}</div>
-                      <font-awesome-icon :icon="item.icon" class="lg:right-0 lg:relative absolute right-4 top-[20%]"></font-awesome-icon>
-                    </div>
-
-                    <div v-else>
-                      NO NAME
-                    </div>
-
-                  </button>
-                </a>
-              </div>
-            </li>
-            <div class="absolute bottom-6 pl-4 font-bold text-sm lg:hidden">A collection of 5000 sharks gathered to navigate the world of the Metanomics through</div>
-          </ul>
-          <!-- <div class="lg:hidden">
-            description here
-            A collection of 5000 sharks gathered to navigate the Psiletanomics through meaningful social impact activities
-          </div> -->
-        </div>
+  <div class="container-fluid">
+    <div class="row w-100" style="position: absolute;">
+      <div class="col-6">
+        <button @click="playAnim('idle')" class="btn btn-primary m-3" style="position: relative; z-index: 2;">idle</button>
+        <button @click="playAnim('run')" class="btn btn-primary m-3" style="position: relative; z-index: 2;">run</button>
       </div>
-    </nav>
-
-    <router-view></router-view>
+      <div class="col-6 text-end">
+        <button @click="LoadSharkBtn('shark01')" class="btn btn-primary m-3" style="position: relative; z-index: 2;">shark01</button>
+        <button @click="LoadSharkBtn('huge06')" class="btn btn-primary m-3" style="position: relative; z-index: 2;">huge06</button>
+      </div>
+    </div>
   </div>
+
+  <div ref="test" id="unity-container">
+    <canvas id="unity-canvas" width=960 height=600></canvas>
+    <div id="unity-loading-bar">
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+    <div id="unity-warning"> </div>
+  </div>
+  <!-- <Unity :src="loaderUrl" width="1000" height="600" :unityLoader="loaderUrl"></Unity> -->
+
 </template>
 
 <script>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import CONFIG from '@/assets/website_cfg.json'
-import SITE_IMG from '@/assets/鯊魚網站-PC版/素材/閃電(GIMP).png'
-import SHINE_IMG from '@/assets/閃電ICON發光1.png'
-import IG from '@/assets/PNG素材/instagram.png'
+// import Unity from './Unity.vue'
 
 export default {
-  data() {
-    return {
-      SITE_CONFIG: CONFIG,
-      WEB_SITE_IMG: SITE_IMG,
-      WEB_SITE_LOGO_SHINE: SHINE_IMG,
-      navbarOpen: false,
-      lightningIcon: false,
-      lightningURL: SITE_IMG,
-      data: [
-        {
-          name: 'COLLECTIONS',
-          path: '/gallery'
-        },
-        {
-          name: 'PLAYGROUND',
-          path: '/playground'
-        },
-        {
-          name: 'EVENTS',
-          path: '/events'
-        },
-        {
-          name: 'GAMES',
-          path: '/games'
-        },
-        {
-          name: 'TEAM',
-          path: '/team'
-        },
-        {
-          path: 'https://google.com',
-          icon: ['fab', 'discord']
-        },
-        {
-          path: 'https://google.com',
-          icon: ['fab', 'twitter']
-        },
-        {
-          path: 'https://google.com',
-          icon: ['fab', 'instagram'],
-          image: IG
-        },
-        {
-          path: '',
-          icon: ['fas', 'cart-shopping'],
-          shoppingCar: false,
-          dropDown: [
-            {
-              name: 'OPENSEA',
-              path: '/'
-            },
-            {
-              name: 'LOOKSRARE',
-              path: '/'
-            },
-            {
-              name: 'X2Y2',
-              path: '/'
-            },
-            {
-              name: 'BLUR',
-              path: '/'
-            }
-          ]
+  mounted() {
+    function GetProd()
+      {
+          return false;
+      }
+
+      window.addEventListener("load", function () {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("/src/ServiceWorker.js");
         }
-      ]
-    }
+      });
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var loaderUrl = "/src/Build/_webgl.loader.js";
+      var config = {
+        dataUrl: "/src/Build/_webgl.data",
+        frameworkUrl: "/src/Build/_webgl.framework.js",
+        codeUrl: "/src/Build/_webgl.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "",
+        productName: "Shark",
+        productVersion: "1.0"
+      };
+
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
   },
-  methods: {
-    setNavbarOpen() {
-      this.navbarOpen = !this.navbarOpen
-    },
-    setShoppingCarOpen(item) {
-      item.shoppingCar = !item.shoppingCar
-      this.lightningIcon = item.shoppingCar
-    }
-  }
+  // name: 'App',
+	// data() {
+	// 	return {
+  //     instance: null,
+	// 		loaded: false,
+  //     loaderUrl: '/src/Build/_webgl.loader.js',
+  //     config: {
+  //       dataUrl: "/src/Build/_webgl.data",
+  //       frameworkUrl: "/src/Build/_webgl.framework.js",
+  //       codeUrl: "/src/Build/_webgl.wasm",
+  //       streamingAssetsUrl: "StreamingAssets",
+  //       companyName: "",
+  //       productName: "Shark",
+  //       productVersion: "1.0"
+  //     }
+	// 	}
+	// },
+	// beforeMount() {
+  //   if (!this.eventBus.load) {
+	// 		const script = document.createElement('script')
+	// 		script.setAttribute('id', 'vue-unity-webgl-loader')
+	// 		script.setAttribute('src', this.loaderUrl)
+	// 		script.setAttribute('async', '')
+	// 		script.setAttribute('defer', '')
+	// 		document.body.appendChild(script)
+	// 		script.addEventListener('load', () => {
+	// 			this.eventBus.ready = true
+	// 			this.eventBus.emit('onload')
+	// 		})
+	// 	} else {
+	// 		this.eventBus.ready = true
+	// 	}
+	// 	this.eventBus.load = true
+	// },
+	// mounted() {
+  //   const instantiate = () => {
+	// 		this.instance = createUnityInstance(this.$refs.test, this.config)
+	// 	}
+  //   if (this.eventBus.ready) {
+	// 		instantiate()
+	// 	} else {
+	// 		this.eventBus.on('onload', () => {
+	// 			instantiate()
+	// 			this.$emit('onload')
+	// 		})
+	// 	}
+	// },
+	// methods: {
+  //   playAnim(anim) {
+  //     console.log('instance: ' + this.instance)
+  //     this.instance.SendMessage('GameManager', 'playAnim', anim);
+  //   },
+  //   LoadSharkBtn(PrefabName) {
+  //     this.instance.SendMessage('GameManager', 'LoadSharkBtn', PrefabName);
+  //   }
+	// }
 }
 </script>
-
-<style>
-.router-link-active button {
-  background-color: rgba(109, 189, 221, 0.5);
-  /* border-bottom: 1px #FFF solid; */
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
-@media (min-width: 1024px) {
-  .router-link-active button {
-    background-color: rgba(255, 255, 255, 15%);
-    /* border-bottom: 1px #FFF solid; */
-    text-decoration-line: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-out;
-}
-</style>

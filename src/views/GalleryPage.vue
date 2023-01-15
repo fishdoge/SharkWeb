@@ -68,7 +68,7 @@
           justify-center
           ">
           <!-- card生成 -->
-          <FishCard @click="CardClick" v-for="(item, key) in data" :key="key" :img="item.img"
+          <FishCard @click="CardClick(item.name, item.tag, item.content, item.img)" v-for="(item, key) in data" :key="key" :img="item.img"
             :card_name="item.name" class="hover:scale-[1.05] hover:drop-shadow-2xl hover:shadow-[white] ">
           </FishCard>
         </div>
@@ -89,13 +89,13 @@
       <div class="flex lg:justify-end lg:pt-5 max-md:flex-col lg:flex-row">
         <div class="lg:w-[45%] lg:pr-[10%] lg:pt-[5%]">
           <div class="modal-title my-5 lg:text-3xl max-md:w-full max-md:flex max-md:justify-center">
-            <span class="text-white font-bold"># dragon shark 04</span>
+            <span class="text-white font-bold"># {{ card_content.title }}</span>
           </div>
-          <div class="modal-icons flex flex-wrap max-md:px-8">
+          <div class="grid grid-cols-2 gap-4">
 
-            <ModalIcon v-for="(item, key) in icon" :key="key" :text="item.name" :href="item.path"></ModalIcon>
+            <ModalIcon v-for="(item, key) in card_content.tag" :key="key" :text="item" :href="item"></ModalIcon>
           </div>
-          <div class="modal-content lg:my-8 max-md:px-8">a a a a aaaaaaaaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+          <!-- <div class="modal-content lg:my-8 max-md:px-8">{{ card_content.content }}</div> -->
         </div>
       </div>
     </div>
@@ -117,6 +117,12 @@ export default {
   data() {
     return {
       modal_switch: true,
+      card_content: {
+        title: '',
+        tag: [],
+        content: '',
+        img: ''
+      },
       sidebar: [
         {
           name: 'SHARKTANK',
@@ -176,233 +182,63 @@ export default {
       data: [
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
         },
         {
           name: 'test',
+          tag: ['test1', 'test2', 'test3'],
+          content: 'test1',
           img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        },
-        {
-          name: 'test',
-          img: material1
-        }
-      ],
-      icon: [
-        {
-          name: 'NOW MINTING',
-          path: '/'
-        },
-        {
-          name: 'GALLERY',
-          path: '/gallery'
-        },
-        {
-          name: 'EVENTS',
-          path: '/events'
-        },
-        {
-          name: 'GAMES',
-          path: '/games'
-        },
-        {
-          name: 'TEAM',
-          path: '/team'
-        },
-        {
-          name: 'PLAYGROUND',
-          path: '/playground'
         }
       ],
       tab: 1
@@ -428,8 +264,12 @@ export default {
     ModalClick() {
       document.getElementsByClassName('modal')[0].style.display = 'none'
     },
-    CardClick() {
+    CardClick(name, tag, content, img) {
       document.getElementsByClassName('modal')[0].style.display = 'flex'
+      this.card_content.title = name
+      this.card_content.tag = tag
+      this.card_content.content = content
+      this.card_content.img = img
     },
     activeTabOne() {
       this.tab = 1

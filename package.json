@@ -20,6 +20,7 @@
     "eslint-plugin-vue": "^9.8.0",
     "flowbite": "^1.5.4",
     "gsap": "^3.11.3",
+    "mitt": "^3.0.0",
     "postcss-import": "^15.0.1",
     "swiper": "^8.4.5",
     "tailwindcss": "^3.2.4",

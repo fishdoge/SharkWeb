@@ -51,11 +51,13 @@ export default {
           `,
           content: `SharkTank is a coalition of 5000 MYMetaSharks with the collective drive to navigate the economics of the metaverse in meaningful and impactful ways.
 
-          The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
+The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
 
-          As the keystone species in the MYMetanomics ecosystem, our mission is to use blockchain technology to create an environment where innovation and creativity can generate a positive social impact on everyone.
+As the keystone species in the MYMetanomics ecosystem, our mission is to use blockchain technology to create an environment where innovation and creativity can generate a positive social impact on everyone.
 
-          Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
+Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
+
+Check out our events page to learn more about our social impact activities.
           `
         },
         {

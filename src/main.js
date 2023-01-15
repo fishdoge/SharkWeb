@@ -2,6 +2,7 @@ import { nextTick, createApp } from 'vue'
 import './style.css'
 import router from './routers'
 import App from './App.vue'
+import mitt from 'mitt'
 
 // Flowbite Tailwind
 import 'flowbite'
@@ -21,6 +22,7 @@ library.add(fas, fab, far)
 
 gsap.registerPlugin(CSSPlugin, ScrollTrigger, Draggable, MotionPathPlugin)
 
+const eventBus = mitt()
 // 程式開始
 const app = createApp(App)
 
@@ -29,6 +31,8 @@ app.mixin({
     this.gsap = gsap
   }
 })
+
+app.config.globalProperties.eventBus = eventBus
 
 // 自動標題(會從 router 裡面的 title 去抓)
 router.afterEach((to, from) => {

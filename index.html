@@ -7,6 +7,18 @@
     <title>MYMETASHARK</title>
   </head>
   <body class="h-full p-0 m-0">
+
+    <!-- Github Page 到 / 以外就會回傳 404，將 sessionStorage.redirect 取出來 -->
+	  <script>
+    (function(){
+      let redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+      history.replaceState(null, null, redirect);
+      }
+    })();
+    </script>
+
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
     <script type="text/javascript" src="Build/webgl.loader.js"></script>

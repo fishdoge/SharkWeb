@@ -581,9 +581,9 @@ export default {
     createUnityInstance(
       document.querySelector('#unity-canvas'),
       {
-        dataUrl: 'Build/_webgl.data',
-        frameworkUrl: 'Build/_webgl.framework.js',
-        codeUrl: 'Build/_webgl.wasm',
+        dataUrl: 'Build/webgl.data',
+        frameworkUrl: 'Build/webgl.framework.js',
+        codeUrl: 'Build/webgl.wasm',
         streamingAssetsUrl: 'SharkAssetBundles',
         productName: 'Shark',
         productVersion: '1.0'

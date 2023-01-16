@@ -5,12 +5,24 @@
     <link rel="icon" type="image" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MYMETASHARK</title>
-    <script type="module" crossorigin src="/assets/index.13949e18.js"></script>
+    <script type="module" crossorigin src="/assets/index.109bae37.js"></script>
     <link rel="stylesheet" href="/assets/index.43a9676b.css">
   </head>
   <body class="h-full p-0 m-0">
+
+    <!-- Github Page 到 / 以外就會回傳 404，將 sessionStorage.redirect 取出來 -->
+	  <script>
+    (function(){
+      let redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+      history.replaceState(null, null, redirect);
+      }
+    })();
+    </script>
+
     <div id="app"></div>
     
-    <script type="text/javascript" src="Build/_webgl.loader.js"></script>
+    <script type="text/javascript" src="Build/webgl.loader.js"></script>
   </body>
 </html>

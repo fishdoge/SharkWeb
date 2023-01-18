@@ -92,7 +92,6 @@
             <span class="text-white font-bold"># {{ card_content.title }}</span>
           </div>
           <div class="grid grid-cols-2 gap-4">
-
             <ModalIcon v-for="(item, key) in card_content.tag" :key="key" :text="item" :href="item"></ModalIcon>
           </div>
           <!-- <div class="modal-content lg:my-8 max-md:px-8">{{ card_content.content }}</div> -->

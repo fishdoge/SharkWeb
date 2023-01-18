@@ -8,15 +8,15 @@
   -->
   <div>
     <!-- Navbar -->
-    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pt-8 pt-4 z-10">
+    <nav class="border-gray-200 px-2 sm:px-4 rounded lg:pt-4 pt-4 z-10">
       <div class="flex flex-1 flex-wrap items-center justify-between lg:mx-auto">
         <!-- Left Image and title -->
-        <router-link to="/" class="flex items-center lg:ml-3">
+        <router-link to="/" class="flex items-center lg:ml-3 z-20">
           <span>
             <img
               :src="lightningURL"
               @mouseover="lightningURL = WEB_SITE_LOGO_SHINE" @mouseleave="lightningURL = WEB_SITE_IMG"
-              class="w-10"
+              class="w-18"
               alt=""
             />
           </span>

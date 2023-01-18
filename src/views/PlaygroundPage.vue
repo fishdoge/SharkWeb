@@ -4,7 +4,7 @@
     TODO: 用 VueGL 去做 3D 物件
     TODO: sharkSlide 下方hr 改掉 改成figma 素材
   -->
-  <div>
+  <div class="">
     <!-- bg -->
     <img class="fixed top-0 -z-50 w-full h-full bg-center bg-fixed bg-cover bg-[url('@/assets/鯊魚網站-PC版/素材/05分圖層.png')]" >
 
@@ -14,12 +14,13 @@
         lg:mt-1 lg:px-8
         overflow-y-auto absolute top-0 pt-20
         max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full
+        z-20
       ">
       <Anchor class="pl-2" :data="sidebar" :iconShow="true"></Anchor>
     </div>
 
     <!-- 底下的鯊魚種類 -->
-    <div id="sharkSlide" class="absolute lg:w-1/2 max-lg:w-full max-lg:bottom-0 md:bottom-4 md:w-full max-lg:pb-5 lg:bottom-12 lg:left-1/4 max-lg:left-0">
+    <div id="sharkSlide" class="select-none absolute lg:w-1/2 max-lg:w-full max-lg:bottom-0 md:bottom-4 md:w-full max-lg:pb-5 lg:bottom-12 lg:left-1/4 max-lg:left-0">
       <div class="test_bar2 z-10"></div>
       <div class="swiper sharkSwiper">
         <div class="lg:pl-6 md:pl-3 swiper-wrapper">
@@ -42,7 +43,7 @@
     </div>
 
     <!-- 右邊的鯊魚動作 -->
-    <div id="actionSlide" class="absolute lg:w-[26rem] max-lg:w-16 max-lg:h-2/3 max-lg:bottom-[20%] lg:h-4/5 lg:bottom-[5%] max-lg:right-3 lg:right-16">
+    <div id="actionSlide" class="select-none absolute lg:w-[26rem] max-lg:w-16 max-lg:h-2/3 max-lg:bottom-[20%] lg:h-4/5 lg:bottom-[5%] max-lg:right-3 lg:right-16">
       <div class="test_bar w-1 absolute top-0 right-0 translate-x-1/2 translate-y-0 h-full rounded-[50%] test_bar z-10"></div>
       <div class="h-full swiper actionSwiper">
         <div class="swiper-wrapper">
@@ -76,7 +77,7 @@
         width="100%"
         height="100%"
       ></iframe> -->
-      <canvas id="unity-canvas" class="max-w-full w-full max-h-full absolute top-0"></canvas>
+      <canvas id="unity-canvas" class="max-w-full w-full max-h-full absolute lg:top-0 top-1/3"></canvas>
     </div>
     <!-- <ClassSlide></ClassSlide>
     <ActionSlide></ActionSlide> -->
@@ -616,10 +617,6 @@ export default {
         prevEl: '.swiper-button-prev'
       }
     })
-    return {
-      sharkSwiper,
-      actionSwiper
-    }
   }
 }
 </script>

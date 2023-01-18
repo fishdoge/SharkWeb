@@ -1,6 +1,6 @@
 <template>
   <!-- This is FishCard -->
-  <div :class="[item.open ? 'absolute top-0 left-0 w-full h-full' : 'h-[251px]', '']">
+  <div :class="[item.open ? 'absolute top-0 left-0 w-full h-full' : 'h-[180px]', '']">
     <!-- This is item.open background image -->
     <div v-show="item.open" :class="[item.open ? 'fixed top-0 left-0 w-full h-[100vh] bg-[rgba(0,0,0,0.5)] z-0' : '' , '']"></div>
     <!-- FishCard content -->

@@ -5,20 +5,12 @@
     <!-- <div>
       <p class="text-white">{{ dateTime.hours }}:{{ dateTime.minutes }}:{{ dateTime.seconds }}</p>
     </div> -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div v-for="(item, key) in post" :key="key" class="swiper-slide">
-          <SwiperPost
-            :post_title="item.title"
-            :post_content="item.content"
-            class="lg:ml-20 ml-5 mt-20 text-white relative">
-          </SwiperPost>
-        </div>
-      </div>
-      <!-- 這邊的tailwind會被 swiper 套件蓋過去 所以用style -->
-      <!-- <div class="swiper-pagination lg:ml-[40%] md:ml-[30%] sm:ml-0" style="position: fixed; bottom: 4rem; width: 25rem;"/> -->
+    <div class="relative top-[-2rem] lg:ml-20 ml-10 mt-10 text-white">
+      <div class="text-7xl pb-5"><b>MYM</b><span class="font-thin">ETANOMICS</span></div>
+      <p class="sm:w-3/5 h-[60vh] overflow-y-scroll pl-2 whitespace-pre-line text-white leading-8 text-lg font-normal">{{ this.post[0].content }}</p>
     </div>
-    <div class="flex flex-1 flex-row pl-5 lg:pl-12 relative bottom-0 mb-12 mt-12">
+
+    <div class="flex flex-1 flex-row pl-5 lg:pl-12 relative bottom-0 mb-12">
       <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-opacity-20 bg-gray-900 rounded-lg border-opacity-40 border-2 border-cyan-400 z-50 text-white">
         BACK
       </button>
@@ -30,7 +22,7 @@
 </template>
 
 <script>
-import SwiperPost from '@/components/HomeReadMore/SwiperPost.vue'
+// import SwiperPost from '@/components/HomeReadMore/SwiperPost.vue'
 // import Anchor from '@/components/AnchorSidebar.vue'
 
 import Swiper, { Navigation, Pagination } from 'swiper'
@@ -40,15 +32,12 @@ Swiper.use([Navigation, Pagination])
 const date = new Date()
 export default {
   components: {
-    SwiperPost
     // Anchor
   },
   data() {
     return {
       post: [
         {
-          title: `<b>MYM</b> <span class="font-thin">ETANOMICS</span>
-          `,
           content: `SharkTank is a coalition of 5000 MYMetaSharks with the collective drive to navigate the economics of the metaverse in meaningful and impactful ways.
 
 The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
@@ -58,15 +47,13 @@ As the keystone species in the MYMetanomics ecosystem, our mission is to use blo
 Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
 
 Check out our events page to learn more about our social impact activities.
+
+The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
+
+As the keystone species in the MYMetanomics ecosystem, our mission is to use blockchain technology to create an environment where innovation and creativity can generate a positive social impact on everyone.
+
+Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
           `
-        },
-        {
-          title: 'page2',
-          content: '456'
-        },
-        {
-          title: 'page3',
-          content: '789'
         }
       ],
       dateTime: {

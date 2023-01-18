@@ -1,5 +1,5 @@
 <template>
-  <aside class="2xl:w-72 xl:w-56 lg:w-44" aria-label="Sidebar">
+  <aside class="2xl:w-64 xl:w-50 lg:w-44" aria-label="Sidebar">
 
     <!-- 手機板filter 和 電腦版的收和按鈕 -->
     <button :class="['max-lg:px-3 pt-4 lg:pb-[10%] z-20', classShow('lg', iconShow)]" @click="setSideBar()" data-dropdown-toggle="dropdownId">

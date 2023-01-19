@@ -5,7 +5,7 @@
     <div v-show="showNum == -1" class="max-lg:flex max-lg:justify-end max-lg:px-2 max-lg:w-full">
       <Anchor :data="sidebar"></Anchor>
     </div>
-    <div class="relative lg:flex-1 max-lg:h-full pt-8">
+    <div class="relative lg:flex-1 max-lg:h-full">
       <!-- 左邊 -->
       <button
         :class="['absolute top-0 lg:left-[-3rem] z-20 flex items-center justify-center h-full lg:px-4 cursor-pointer group focus:outline-none left-0 py-auto max-lg:px-5',
@@ -47,7 +47,8 @@
         </FishCard>
         </div>
       </div> -->
-      <div class="grid grid-cols-2 gap-6 px-9 max-lg:px-16 max-lg:pt-5 lg:flex-wrap h-[110%] max-lg:pb-8 md:pb-0 lg:w-[calc(100%-256px)] lg:pr-6 md:justify-around max-lg:justify-between sm:w-full overflow-hidden">
+      <div ref="team_cards" class="grid lg:grid-cols-2 grid-cols-1 gap-4 px-9 max-lg:px-16 max-lg:pt-5 lg:flex-wrap
+      h-[102%] max-lg:pb-8 pb-0 lg:w-[calc(100%-256px)] lg:pr-6 md:justify-around max-lg:justify-between sm:w-full overflow-hidden">
         <!-- This is FishBar Container -->
         <FishCard
           v-show="(showNum == -1 || showNum == key)"
@@ -83,13 +84,7 @@ import SWShark from '@/assets/Team/SW Shark.png'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
 
-// swiper套件
-import Swiper, { Navigation, Pagination } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/pagination'
-
 gsap.registerPlugin(Flip)
-Swiper.use([Navigation, Pagination])
 
 export default {
   components: {
@@ -98,8 +93,10 @@ export default {
   },
   data() {
     return {
+      slides: document.getElementsByClassName('slide'),
       slideIndex: 0,
       showNum: -1,
+      slideShowNum: window.screen.width > 1023 ? 6 : 3,
       fishCardData: [
         {
           name: 'JL Shark',
@@ -210,20 +207,23 @@ export default {
   methods: {
     changeStatus(val) {
       this.showNum = val.open ? val.num : -1
+      if (this.showNum === -1) {
+        setTimeout(this.showSlide, 10)
+      }
     },
     showSlide() {
-      const slides = document.getElementsByClassName('slide')
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none'
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].style.display = 'none'
       }
-      for (let i = 6 * this.slideIndex; i < 6 + 6 * this.slideIndex; i++) {
+      for (let i = this.slideShowNum * this.slideIndex; i < this.slideShowNum + this.slideShowNum * this.slideIndex; i++) {
         try {
-          slides[i].style.display = ''
+          this.slides[i].style.display = ''
         } catch {}
       }
     },
     next() {
       this.slideIndex++
+      if (this.slideIndex >= this.slides.length / this.slideShowNum) this.slideIndex = Math.floor(this.slides.length / this.slideShowNum) - 1
       this.showSlide()
     },
     prev() {

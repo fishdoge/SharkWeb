@@ -5,9 +5,9 @@
     <!-- <div>
       <p class="text-white">{{ dateTime.hours }}:{{ dateTime.minutes }}:{{ dateTime.seconds }}</p>
     </div> -->
-    <div class="relative top-[-2rem] lg:ml-20 ml-10 mt-10 text-white">
-      <div class="text-7xl pb-5"><b>MYM</b><span class="font-thin">ETANOMICS</span></div>
-      <p class="sm:w-3/5 h-[60vh] overflow-y-scroll pl-2 whitespace-pre-line text-white leading-8 text-lg font-normal">{{ this.post[0].content }}</p>
+    <div class="relative top-[-2rem] lg:ml-20 ml-10 mr-10 mt-10 text-white">
+      <div class="lg:text-7xl pb-5 text-4xl"><b>MYM</b><span class="font-thin">ETANOMICS</span></div>
+      <p class="lg:w-1/2 lg:max-h-full max-w-xl h-[60vh] overflow-y-scroll pl-2 whitespace-pre-line text-white leading-8 text-lg font-normal">{{ this.post[0].content }}</p>
     </div>
 
     <div class="flex flex-1 flex-row pl-5 lg:pl-12 relative bottom-0 mb-12">

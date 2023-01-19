@@ -13,6 +13,7 @@
         Read Full Story <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </router-link>
     </div>
+    <!-- <div id="timer" class="fixed w-fit left-[55.4%] top-[44%] text-white font-bold">10:58 :PM</div> -->
   </div>
 </template>
 

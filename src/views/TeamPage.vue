@@ -47,7 +47,7 @@
         </FishCard>
         </div>
       </div> -->
-      <div ref="team_cards" class="grid lg:grid-cols-2 grid-cols-1 gap-4 px-9 max-lg:px-16 max-lg:pt-5 lg:flex-wrap
+      <div ref="team_cards" class="grid lg:grid-cols-2 grid-cols-1 lg:gap-4 gap-2 px-9 max-lg:px-16 max-lg:pt-5 lg:flex-wrap
       h-[102%] max-lg:pb-8 pb-0 lg:w-[calc(100%-256px)] lg:pr-6 md:justify-around max-lg:justify-between sm:w-full overflow-hidden">
         <!-- This is FishBar Container -->
         <FishCard

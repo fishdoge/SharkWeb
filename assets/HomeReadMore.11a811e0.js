@@ -1,4 +1,4 @@
-import{S as s,N as i}from"./swiper.min.7975e250.js";import{P as r}from"./pagination.min.535e4b75.js";import{_ as l,c,a as t,t as h,o as p}from"./index.997703dc.js";s.use([i,r]);const n=new Date,u={components:{},data(){return{post:[{content:`SharkTank is a coalition of 5000 MYMetaSharks with the collective drive to navigate the economics of the metaverse in meaningful and impactful ways.
+import{S as s,N as i}from"./swiper.min.7975e250.js";import{P as r}from"./pagination.min.535e4b75.js";import{_ as l,c,a as t,t as h,o as p}from"./index.f55dc24f.js";s.use([i,r]);const n=new Date,u={components:{},data(){return{post:[{content:`SharkTank is a coalition of 5000 MYMetaSharks with the collective drive to navigate the economics of the metaverse in meaningful and impactful ways.
 
 The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
 

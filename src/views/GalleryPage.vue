@@ -69,7 +69,7 @@
           ">
           <!-- card生成 -->
           <FishCard @click="CardClick(item.name, item.tag, item.content, item.img)" v-for="(item, key) in data" :key="key" :img="item.img"
-            :card_name="item.name" :id="item.id" class="hover:scale-[1.05] hover:drop-shadow-2xl hover:shadow-[white] ">
+            :card_name="item.name" :id="item.id" class="hover:scale-[1.05] hover:drop-shadow-2xl hover:shadow-[white]">
           </FishCard>
         </div>
       </div>
@@ -84,8 +84,7 @@
     style="display: none; align-items: center;"
     @click="ModalClick()">
     <div
-      class="z-[11] px-[10] py-[10] w-[70%] h-[65%] shadow-[0_6px_20px_0_rgba(66,_118,_217,_0.2),_0_6px_20px_0_rgba(66,_118,_217,_0.19)] border-[#4276D9] rounded-[60px]"
-      style="background:radial-gradient(#4276D9,black);box-shadow: 0 6px 20px 0 rgba(66, 118, 217, 0.2), 0 6px 20px 0 rgba(66, 118, 217, 0.19);border-color: #4276D9; border:solid rgba(66, 118, 217, 0.19);">
+      class="z-[11] px-[10] py-[10] w-[70%] h-[65%] shadow-[0_6px_20px_0_rgba(66,_118,_217,_0.2),_0_6px_20px_0_rgba(66,_118,_217,_0.19)] border-[#4276D9] rounded-[60px]">
       <div class="flex lg:justify-end lg:pt-5 max-md:flex-col lg:flex-row">
         <div class="lg:w-[45%] lg:pr-[10%] lg:pt-[5%]">
           <div class="modal-title my-5 lg:text-3xl max-md:w-full max-md:flex max-md:justify-center">
@@ -105,7 +104,7 @@
 import FishCard from '@/components/Gallery/FishCard.vue'
 import Anchor from '@/components/AnchorSidebar.vue'
 import ModalIcon from '@/components/Gallery/ModalIcon.vue'
-import material1 from '@/assets/鯊魚網站-PC版/test.png'
+import material1 from '@/assets/PNG素材/蓋牌.png'
 
 export default {
   components: {

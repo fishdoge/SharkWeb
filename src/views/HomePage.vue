@@ -15,7 +15,7 @@
       </router-link>
     </div>
 
-    <div class="w-72 absolute lg:left-[45%] md:left-[40%] left-[15  %] top-[29%]">
+    <div class="w-72 absolute lg:left-[45%] md:left-[40%] left-[15%] top-[29%]">
       <img :src="this.TimerImg"/>
       <p class="relative text-white w-fit text-4xl left-16 bottom-[8.6rem]">{{ random }}</p>
       <pre class="relative text-white w-fit text-xl font-bold left-5 bottom-[5.5rem]">{{ NowTime }}</pre>

@@ -28,6 +28,7 @@
             class="swiper-slide -left-4 bottom-4"
             v-for="(item, key) in sharkName" :key="key"
           >
+          <!-- {{ item.name }} -->
             <button @click="LoadSharkBtn(item.name)">
               <img :src="item.img" class="relative top-1/2 left-1/2 max-lg:h-10 lg:h-[70px] mt-4 mb-2"/>
             </button>
@@ -307,16 +308,16 @@ export default {
       ],
       sharkName: [
         {
-          img: SharkImg01,
-          name: 'shark01'
+          img: SharkImg03,
+          name: 'shark03'
         },
         {
           img: SharkImg02,
           name: 'shark02'
         },
         {
-          img: SharkImg03,
-          name: 'shark03'
+          img: SharkImg01,
+          name: 'shark01'
         },
         {
           img: SharkImg04,
@@ -599,6 +600,7 @@ export default {
     const sharkSwiper = new Swiper('.sharkSwiper', {
       loop: false,
       slidesPerView: 5,
+      initialSlide: 2,
       slideToClickedSlide: true,
       centeredSlides: true,
       navigation: {

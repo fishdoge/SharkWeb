@@ -7,11 +7,21 @@
     </div> -->
     <div class="relative top-[-2rem] lg:ml-20 ml-10 mr-10 mt-10 text-white">
       <div class="lg:text-7xl pb-5 text-4xl"><b>MYM</b><span class="font-thin">ETANOMICS</span></div>
-      <p class="lg:w-1/2 lg:max-h-full max-w-xl h-[60vh] overflow-y-scroll pl-2 whitespace-pre-line text-white leading-8 text-lg font-normal">{{ this.post[0].content }}</p>
+      <pre class="lg:w-1/2 lg:max-h-full max-w-xl h-[60vh] overflow-y-scroll pl-2 whitespace-pre-line text-white leading-8 text-lg font-normal">
+        SharkTank is a coalition of 5000 MYMetaSharks with the collective drive to navigate the economics of the metaverse in meaningful and impactful ways.
+
+        The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
+
+        As the keystone species in the MYMetanomics ecosystem, our mission is to use blockchain technology to create an environment where innovation and creativity can generate a positive social impact on everyone.
+
+        Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
+
+        Check out our <router-link to="/events" class="text-[#36FFFF] underline underline-offset-4">events page</router-link> to learn more about our social impact activities.
+      </pre>
     </div>
 
     <div class="flex flex-1 flex-row pl-5 lg:pl-12 relative bottom-0 mb-12">
-      <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-opacity-20 bg-gray-900 rounded-lg border-opacity-40 border-2 border-cyan-400 z-50 text-white">
+      <button @click="$router.push('/')" class="px-4 py-1 text-lg bg-opacity-20 bg-gray-900 rounded-lg border-opacity-40 border-2 border-cyan-400 z-50 text-white hover:border-solid hover:bottom-0 hover:border-cyan-300 hover:text-cyan-300">
         BACK
       </button>
       <!-- <router-link to="/" type="button" >Back</router-link> -->
@@ -36,26 +46,6 @@ export default {
   },
   data() {
     return {
-      post: [
-        {
-          content: `SharkTank is a coalition of 5000 MYMetaSharks with the collective drive to navigate the economics of the metaverse in meaningful and impactful ways.
-
-The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
-
-As the keystone species in the MYMetanomics ecosystem, our mission is to use blockchain technology to create an environment where innovation and creativity can generate a positive social impact on everyone.
-
-Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
-
-Check out our events page to learn more about our social impact activities.
-
-The advent of blockchain technology ushers in unprecedented possibilities to collaborate, create, and build.
-
-As the keystone species in the MYMetanomics ecosystem, our mission is to use blockchain technology to create an environment where innovation and creativity can generate a positive social impact on everyone.
-
-Join the wave that is paving a new way to engage with art, culture, business, and, most importantly, each other.
-          `
-        }
-      ],
       dateTime: {
         hours: date.getHours(),
         minutes: date.getMinutes(),

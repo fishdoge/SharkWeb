@@ -24,12 +24,12 @@
           <li>
             <button type="submit"
               class="py-5 lg:py-4 max-lg:ml-4 text-sm font-medium lg:text-white max-lg:text-black max-lg:font-semibold rounded-lg pl-0">
-              <svg class="w-9 h-7 max-lg:w-11 max-lg:h-11" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              <svg class="w-9 h-7 max-lg:w-11 max-lg:h-11 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
-              <span class="sr-only">Search</span>
+              <span class="align-middle text-gray-300">Sort by serial...</span>
             </button>
             <hr class="max-lg:border-black"/>
 
@@ -41,7 +41,7 @@
                 class="lg:text-white max-lg:text-black max-lg:font-semibold text-center flex items-center w-full justify-between font-medium rounded-lg
                 focus:text-sky-400
                   max-lg:text-3xl max-lg:py-6 max-lg:pl-4 max-lg:pr-6
-                  lg:py-6 lg:text-2xl
+                  lg:py-6 lg:text-xl
                 "
                 type="button"
                 @click="setDropDownOpen(item)"
@@ -53,13 +53,13 @@
                   NO NAME
                 </div>
 
-                <font-awesome-icon :icon="item.dropDownOpen ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"
+                <font-awesome-icon v-if="item.hasDrop != false" :icon="item.dropDownOpen ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"
                   :class="[item.dropDownOpen ? '' : '' , 'ml-2 w-4 h-4']" />
               </button>
 
               <!-- Dropdown menu -->
               <div>
-                <div id="dropdownDefaultCheckbox" :class="[item.dropDownOpen ? 'block rounded ' : 'hidden']"
+                <div v-if="item.hasDrop != false" id="dropdownDefaultCheckbox" :class="[item.dropDownOpen ? 'block rounded ' : 'hidden']"
                   class="z-10 w-48 rounded divide-y bg-transparent">
                   <ul class="pb-3 pl-4 space-y-3 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownCheckboxButton">
@@ -70,6 +70,10 @@
                       </div>
                     </li>
                   </ul>
+                </div>
+                <!-- Team page sidebar -->
+                <div v-if="item.hasDrop == false" id="dropdownDefaultCheckbox"
+                  class="z-10 w-48 rounded divide-y bg-transparent">
                 </div>
                 <hr class="max-lg:border-black"/>
               </div>

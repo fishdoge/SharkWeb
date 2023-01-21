@@ -57,6 +57,7 @@
           :num= "key"
           :key="key"
           class="slide"
+          :class="[item.open ? '' : 'hover:scale-105']"
           @changeStatus="changeStatus">
         </FishCard>
         <!-- @click="openModel(item,key)" -->
@@ -186,17 +187,11 @@ export default {
       sidebar: [
         {
           name: 'TEAM',
-          dropDownOpen: false,
-          dropDown: [
-            'shark', 'shark', 'shark', 'shark', 'shark'
-          ]
+          hasDrop: false
         },
         {
-          name: 'PARTNER',
-          dropDownOpen: false,
-          dropDown: [
-            'shark', 'shark', 'shark', 'shark', 'shark'
-          ]
+          name: 'PARENT',
+          hasDrop: false
         }
       ]
     }

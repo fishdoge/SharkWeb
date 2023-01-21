@@ -138,7 +138,7 @@
 
                     <div v-else-if="item.image" class="w-4 h-5">
                       <div class="lg:hidden inline-block text-black">{{ item.icon[1].toUpperCase() }}</div>
-                      <img :src="item.image" class="lg:absolute w-fit lg:top-1 lg:h-5 lg:right-0.5 lg:drop-shadow-[0px_0_rgba(0,0,0,0)] lg:left-[1.5px] right-[-300px] top-[410px] h-6 drop-shadow-[-306px_0_rgba(0,0,0,1)] fixed" alt="" />
+                      <img :src="item.image" class="lg:absolute w-fit lg:top-1 lg:h-5 lg:right-0.5 lg:drop-shadow-[0px_0_rgba(0,0,0,0)] lg:left-[1.5px] right-[-302px] h-6 drop-shadow-[-306px_-25px_rgba(0,0,0,1)] fixed" alt="" />
                     </div>
 
                     <div v-else-if="item.icon[0]" class="w-fit text-black lg:text-white">
@@ -209,20 +209,20 @@ export default {
           path: '/team'
         },
         {
-          path: 'https://google.com',
+          path: 'https://discord.gg/mymetanomics',
           icon: ['fab', 'discord'],
           iconUrl: 'src/assets/PNG素材/discord.png',
           image: DC
         },
         {
-          path: 'https://google.com',
+          path: 'https://twitter.com/mymetanomics',
           icon: ['fab', 'twitter'],
           iconUrl: 'src/assets/PNG素材/twitter.png',
           image: TW
 
         },
         {
-          path: 'https://google.com',
+          path: 'https://www.instagram.com/mymetanomics/',
           icon: ['fab', 'instagram'],
           iconUrl: 'src/assets/PNG素材/instagram.png',
           image: IG

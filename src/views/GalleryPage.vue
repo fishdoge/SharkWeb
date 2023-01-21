@@ -69,7 +69,7 @@
           ">
           <!-- card生成 -->
           <FishCard @click="CardClick(item.name, item.tag, item.content, item.img)" v-for="(item, key) in data" :key="key" :img="item.img"
-            :card_name="item.name" class="hover:scale-[1.05] hover:drop-shadow-2xl hover:shadow-[white] ">
+            :card_name="item.name" :id="item.id" class="hover:scale-[1.05] hover:drop-shadow-2xl hover:shadow-[white] ">
           </FishCard>
         </div>
       </div>
@@ -124,7 +124,7 @@ export default {
       },
       sidebar: [
         {
-          name: 'SHARKTANK',
+          name: 'BODY',
           isCheckbox: true,
           navbarOpen: false,
           dropDown: [
@@ -138,7 +138,7 @@ export default {
           ]
         },
         {
-          name: 'ANGKOR ART',
+          name: 'HEAD ACCESSORY',
           isCheckbox: true,
           navbarOpen: false,
           dropDown: [
@@ -146,7 +146,7 @@ export default {
           ]
         },
         {
-          name: 'ARTEL',
+          name: 'EYE ACCESSORY',
           isCheckbox: true,
           navbarOpen: false,
           dropDown: [
@@ -154,7 +154,7 @@ export default {
           ]
         },
         {
-          name: 'SEA GAMES',
+          name: 'MOUTH ACCESSORY',
           isCheckbox: true,
           navbarOpen: false,
           dropDown: [
@@ -162,7 +162,7 @@ export default {
           ]
         },
         {
-          name: 'POWER NODES',
+          name: 'NECK ACCESSORY',
           isCheckbox: true,
           navbarOpen: false,
           dropDown: [
@@ -170,7 +170,15 @@ export default {
           ]
         },
         {
-          name: 'AGRICULTURE NFT',
+          name: 'HAND ACCESSORY',
+          isCheckbox: true,
+          navbarOpen: false,
+          dropDown: [
+            'sharktank'
+          ]
+        },
+        {
+          name: 'BACKGROUND',
           isCheckbox: true,
           navbarOpen: false,
           dropDown: [
@@ -180,61 +188,71 @@ export default {
       ],
       data: [
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1
         },
         {
-          name: 'test',
+          name: 'SHARK',
+          id: '0000',
           tag: ['test1', 'test2', 'test3'],
           content: 'test1',
           img: material1

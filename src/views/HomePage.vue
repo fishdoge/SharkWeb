@@ -9,11 +9,13 @@
       <router-link
         to="/readMore"
         type="button"
-        class="px-2 py-1 mt-1 lg:text-lg text-sm bg-gray-900 bg-opacity-30 rounded-lg border-2 border-teal-700 font-light ">
-        Read Full Story <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        class="show-arrow-parent px-2 py-1 mt-1 lg:text-lg text-sm bg-gray-900 bg-opacity-30 rounded-lg border-2 border-teal-700 font-light"
+        >
+        Read full story <div class="show-arrow float-right"><font-awesome-icon :icon="['fas', 'chevron-right']" /></div>
       </router-link>
     </div>
-    <div class="w-72 absolute lg:left-[45%] md:left-[40%] left-[36%] top-[29%]">
+
+    <div class="w-72 absolute lg:left-[45%] md:left-[40%] left-[15  %] top-[29%]">
       <img :src="this.TimerImg"/>
       <p class="relative text-white w-fit text-4xl left-16 bottom-[8.6rem]">{{ random }}</p>
       <pre class="relative text-white w-fit text-xl font-bold left-5 bottom-[5.5rem]">{{ NowTime }}</pre>
@@ -58,9 +60,39 @@ export default {
     t1.to('h1', { duration: 1, opacity: 1 }, '<1')
     this.updateTime()
     setInterval(this.updateTime, 1000)
+
+    // GET random for timer block
     setInterval(() => {
       this.random = Math.floor(Math.random() * 89999 + 10000)
     }, 700)
   }
 }
 </script>
+
+<style>
+.show-arrow-parent {
+  opacity: 1;
+}
+
+.show-arrow {
+  opacity: 1;
+}
+
+.show-arrow-parent:hover .show-arrow {
+  animation-name: showArrow;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+}
+
+@keyframes showArrow {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+</style>

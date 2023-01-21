@@ -84,7 +84,8 @@
     style="display: none; align-items: center;"
     @click="ModalClick()">
     <div
-      class="z-[11] px-[10] py-[10] w-[70%] h-[65%] shadow-[0_6px_20px_0_rgba(66,_118,_217,_0.2),_0_6px_20px_0_rgba(66,_118,_217,_0.19)] border-[#4276D9] rounded-[60px]">
+      class="z-[11] px-[10] py-[10] w-[70%] h-[65%] shadow-[0_6px_20px_0_rgba(66,_118,_217,_0.2),_0_6px_20px_0_rgba(66,_118,_217,_0.19)] border-[#4276D9] bg-[radial-gradient(#4276D9,black)] rounded-[60px]"
+      >
       <div class="flex lg:justify-end lg:pt-5 max-md:flex-col lg:flex-row">
         <div class="lg:w-[45%] lg:pr-[10%] lg:pt-[5%]">
           <div class="modal-title my-5 lg:text-3xl max-md:w-full max-md:flex max-md:justify-center">
